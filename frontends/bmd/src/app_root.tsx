@@ -144,6 +144,7 @@ const initialHardwareState: Readonly<HardwareState> = {
     machineId: '0000',
     codeVersion: 'dev',
     screenOrientation: 'portrait',
+    // screenOrientation: 'landscape',
   },
 };
 
@@ -427,8 +428,10 @@ export function AppRoot({
 
   const hidePostVotingInstructions = useCallback(() => {
     clearTimeout(PostVotingInstructionsTimeout.current);
+    // if (false) {
     if (isCardlessVoterAuth(auth)) auth.logOut();
     dispatchAppState({ type: 'resetBallot' });
+    // }
   }, [auth]);
 
   // Hide Verify and Scan Instructions

@@ -247,14 +247,23 @@ exports[`Single Seat Contest 1`] = `
         <p
           class="sc-bdvvaa iybVtA"
         >
+<<<<<<< HEAD
           This is the
            
+=======
+          This is the 
+>>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
           <strong>
             1st
              contest
           </strong>
+<<<<<<< HEAD
            of
            
+=======
+           
+          of 
+>>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
           21 contests
            on your ballot.
         </p>

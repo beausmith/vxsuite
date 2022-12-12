@@ -36,6 +36,7 @@ const Label = styled.label`
 interface Props {
   userSettings: UserSettings;
   setUserSettings: SetUserSettings;
+  sidebarWrapper?: boolean;
 }
 
 const ariaLabels = ['Small', 'Medium', 'Large', 'Extra Large'];
@@ -43,6 +44,7 @@ const ariaLabels = ['Small', 'Medium', 'Large', 'Extra Large'];
 export function SettingsTextSize({
   userSettings,
   setUserSettings,
+  sidebarWrapper = false,
 }: Props): JSX.Element {
   const adjustFontSize: EventTargetFunction = (event) => {
     const target = event.currentTarget as HTMLButtonElement;
@@ -72,4 +74,10 @@ export function SettingsTextSize({
       </TextSizeSegmentedButton>
     </p>
   );
+  if (sidebarWrapper) {
+    <Container aria-hidden>
+      <Center>{textSizeSetting}</Center>
+    </Container>;
+  }
+  return textSizeSetting;
 }

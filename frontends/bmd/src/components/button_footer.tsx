@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ButtonFooterButtons = css`
+const buttonFooterButtonStyles = css`
   button {
     padding-right: 10px;
     padding-left: 10px;
@@ -21,7 +21,7 @@ export const ButtonFooter = styled.nav`
     }
   }
   /* stylelint-disable-next-line value-keyword-case, order/order */
-  ${ButtonFooterButtons}
+  ${buttonFooterButtonStyles}
 `;
 
 export const ButtonFooterLandscape = styled.div`
@@ -31,5 +31,5 @@ export const ButtonFooterLandscape = styled.div`
     flex: 1;
   }
   /* stylelint-disable-next-line value-keyword-case, order/order */
-  ${ButtonFooterButtons}
+  ${buttonFooterButtonStyles}
 `;
