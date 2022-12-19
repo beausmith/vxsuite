@@ -248,15 +248,21 @@ exports[`Single Seat Contest 1`] = `
           class="sc-bdvvaa iybVtA"
         >
 <<<<<<< HEAD
+<<<<<<< HEAD
           This is the
            
 =======
           This is the 
 >>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
+=======
+          This is the
+           
+>>>>>>> 45ab78b4d (PR feedback updates)
           <strong>
             9th
              contest
           </strong>
+<<<<<<< HEAD
 <<<<<<< HEAD
            of
            
@@ -264,6 +270,10 @@ exports[`Single Seat Contest 1`] = `
            
           of 
 >>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
+=======
+           of
+           
+>>>>>>> 45ab78b4d (PR feedback updates)
           21 contests
            on your ballot.
         </p>
