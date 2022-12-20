@@ -72,5 +72,4 @@ export function SettingsTextSize({
       </TextSizeSegmentedButton>
     </p>
   );
-  return textSizeSetting;
 }

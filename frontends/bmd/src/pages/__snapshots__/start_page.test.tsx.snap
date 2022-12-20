@@ -183,11 +183,7 @@ exports[`renders StartPage 1`] = `
       >
         <button
           aria-label="Press the right button to advance to the first contest."
-<<<<<<< HEAD
           class="sc-egiSv desLmk"
-=======
-          class="sc-egiSv kGVoMM"
->>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
           id="next"
           role="option"
           type="button"
@@ -584,11 +580,7 @@ exports[`renders StartPage with inline SVG 1`] = `
       >
         <button
           aria-label="Press the right button to advance to the first contest."
-<<<<<<< HEAD
           class="sc-egiSv desLmk"
-=======
-          class="sc-egiSv kGVoMM"
->>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
           id="next"
           role="option"
           type="button"
@@ -821,11 +813,7 @@ exports[`renders StartPage with no seal 1`] = `
       >
         <button
           aria-label="Press the right button to advance to the first contest."
-<<<<<<< HEAD
           class="sc-egiSv desLmk"
-=======
-          class="sc-egiSv kGVoMM"
->>>>>>> 590292d75 (feat(bmd): Portrait orientation support)
           id="next"
           role="option"
           type="button"
