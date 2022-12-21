@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import * as GLOBALS from '../config/globals';
+import { DEFAULT_USER_SETTINGS } from '../config/globals';
 
 import { BallotContextInterface, MarkOnly } from '../config/types';
 
@@ -22,7 +22,7 @@ const ballot: BallotContextInterface = {
   updateTally: () => undefined,
   updateVote: () => undefined,
   forceSaveVote: () => undefined,
-  userSettings: GLOBALS.DEFAULT_USER_SETTINGS,
+  userSettings: DEFAULT_USER_SETTINGS,
   votes: {},
 };
 

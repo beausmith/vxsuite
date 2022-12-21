@@ -3,26 +3,24 @@ import styled from 'styled-components';
 
 import { Button, SegmentedButton } from '@votingworks/ui';
 
-import {
-  EventTargetFunction,
-  SetUserSettings,
-  TextSizeSetting,
-  UserSettings,
-} from '../config/types';
-import { FONT_SIZES } from '../config/globals';
+import { SetUserSettings, UserSettings } from '../config/types';
+import { SIZE_THEMES, TEXT_SIZES } from '../config/globals';
 
 const TextSizeSegmentedButton = styled(SegmentedButton)`
   button {
-    min-width: ${FONT_SIZES[1] * 3.5}px;
+    min-width: ${TEXT_SIZES[1] * 3.5}px;
     /* stylelint-disable declaration-no-important */
-    &[data-size='0'] {
-      font-size: ${FONT_SIZES[0]}px !important;
+    &[data-size='S'] {
+      font-size: ${TEXT_SIZES[0]}px !important;
     }
-    &[data-size='1'] {
-      font-size: ${FONT_SIZES[1]}px !important;
+    &[data-size='M'] {
+      font-size: ${TEXT_SIZES[1]}px !important;
     }
-    &[data-size='2'] {
-      font-size: ${FONT_SIZES[2]}px !important;
+    &[data-size='L'] {
+      font-size: ${TEXT_SIZES[2]}px !important;
+    }
+    &[data-size='XL'] {
+      font-size: ${TEXT_SIZES[3]}px !important;
     }
     /* stylelint-enable */
   }
@@ -44,26 +42,19 @@ export function SettingsTextSize({
   userSettings,
   setUserSettings,
 }: Props): JSX.Element {
-  const adjustFontSize: EventTargetFunction = (event) => {
-    const target = event.currentTarget as HTMLButtonElement;
-    // eslint-disable-next-line vx/gts-safe-number-parse
-    const textSize = +target.value as TextSizeSetting;
-    setUserSettings({ textSize });
-  };
   return (
     <p>
       <Label aria-hidden>Text Size</Label>
       <TextSizeSegmentedButton data-testid="change-text-size-buttons">
-        {FONT_SIZES.slice(0, 3).map((v: number, i: number) => (
+        {SIZE_THEMES.map((v, i) => (
           <Button
             key={v}
-            data-size={i}
-            small
-            onPress={adjustFontSize}
-            value={i}
-            primary={userSettings.textSize === i}
+            data-size={v}
+            onPress={() => setUserSettings({ sizeTheme: v })}
+            value={v}
+            primary={userSettings.sizeTheme === v}
             aria-label={`${
-              userSettings.textSize === i ? 'Selected' : ''
+              userSettings.sizeTheme === v ? 'Selected' : ''
             } Text Size: ${ariaLabels[i]}`}
           >
             A

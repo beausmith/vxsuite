@@ -29,7 +29,11 @@ import {
 import { BallotContext } from '../contexts/ballot_context';
 
 import { Blink } from './animations';
-import { FONT_SIZES, WRITE_IN_CANDIDATE_MAX_LENGTH } from '../config/globals';
+import {
+  SIZE_THEMES,
+  TEXT_SIZES,
+  WRITE_IN_CANDIDATE_MAX_LENGTH,
+} from '../config/globals';
 import { ChoiceButton } from './choice_button';
 import { VirtualKeyboard } from './virtual_keyboard';
 import {
@@ -127,7 +131,8 @@ export function CandidateContest({
     if (!target) {
       return;
     }
-    const targetMinHeight = FONT_SIZES[userSettings.textSize] * 8; // magic number: room for buttons + spacing
+    const targetMinHeight =
+      TEXT_SIZES[SIZE_THEMES.indexOf(userSettings.sizeTheme)] * 8; // magic number: room for buttons + spacing
     const windowsScrollTopOffsetMagicNumber = 1; // Windows Chrome is often 1px when using scroll buttons.
     const windowsScrollTop = Math.ceil(target.scrollTop); // Windows Chrome scrolls to sub-pixel values.
     setIsScrollable(
@@ -143,7 +148,7 @@ export function CandidateContest({
         target.scrollHeight
     );
     setIsScrollAtTop(target.scrollTop === 0);
-  }, [scrollContainer, userSettings.textSize]);
+  }, [scrollContainer, userSettings.sizeTheme]);
 
   useEffect(() => {
     updateContestChoicesScrollStates();

@@ -39,16 +39,20 @@ exports[`renders SettingsTextSize 1`] = `
   min-width: 98px;
 }
 
-.c1 button[data-size='0'] {
+.c1 button[data-size='S'] {
   font-size: 22px !important;
 }
 
-.c1 button[data-size='1'] {
+.c1 button[data-size='M'] {
   font-size: 28px !important;
 }
 
-.c1 button[data-size='2'] {
+.c1 button[data-size='L'] {
   font-size: 36px !important;
+}
+
+.c1 button[data-size='XL'] {
+  font-size: 56px !important;
 }
 
 .c0 {
@@ -69,28 +73,37 @@ exports[`renders SettingsTextSize 1`] = `
   >
     <button
       aria-label=" Text Size: Small"
-      class="sc-egiSv feoAXt"
-      data-size="0"
+      class="sc-egiSv dHUDgX"
+      data-size="S"
       type="button"
-      value="0"
+      value="S"
     >
       A
     </button>
     <button
       aria-label="Selected Text Size: Medium"
-      class="sc-egiSv dGzrLr"
-      data-size="1"
+      class="sc-egiSv KWJA-d"
+      data-size="M"
       type="button"
-      value="1"
+      value="M"
     >
       A
     </button>
     <button
       aria-label=" Text Size: Large"
-      class="sc-egiSv feoAXt"
-      data-size="2"
+      class="sc-egiSv dHUDgX"
+      data-size="L"
       type="button"
-      value="2"
+      value="L"
+    >
+      A
+    </button>
+    <button
+      aria-label=" Text Size: Extra Large"
+      class="sc-egiSv dHUDgX"
+      data-size="XL"
+      type="button"
+      value="XL"
     >
       A
     </button>

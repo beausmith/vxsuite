@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders StartPage 1`] = `
-.c4 {
+.c5 {
   -webkit-animation: hktaaY 10s ease-in-out infinite;
   animation: hktaaY 10s ease-in-out infinite;
-}
-
-.c1 {
-  max-width: 250px;
 }
 
 .c2 {
   max-width: 250px;
 }
 
-.c0 {
+.c3 {
+  max-width: 250px;
+}
+
+.c1 {
   display: block;
   margin: auto;
 }
 
-.c0 div:first-child {
+.c1 div:first-child {
   margin: 0 auto 0.5rem;
 }
 
-.c7 {
+.c8 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -31,60 +31,153 @@ exports[`renders StartPage 1`] = `
   white-space: nowrap;
 }
 
-.c7 > button {
+.c8 > button {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   box-shadow: inset 1px 0 0 rgb(190,190,190);
 }
 
-.c7 > button:first-child {
+.c8 > button:first-child {
   box-shadow: none;
 }
 
-.c7 > button:not(:last-child) {
+.c8 > button:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.c7 > button:not(:first-child) {
+.c8 > button:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.c7 > button:disabled {
+.c8 > button:disabled {
   background: #028099;
   color: #ffffff;
 }
 
-.c7 button {
+.c8 button {
   min-width: 98px;
 }
 
-.c7 button[data-size='0'] {
+.c8 button[data-size='S'] {
   font-size: 22px !important;
 }
 
-.c7 button[data-size='1'] {
+.c8 button[data-size='M'] {
   font-size: 28px !important;
 }
 
-.c7 button[data-size='2'] {
+.c8 button[data-size='L'] {
   font-size: 36px !important;
 }
 
-.c6 {
+.c8 button[data-size='XL'] {
+  font-size: 56px !important;
+}
+
+.c7 {
   display: block;
   margin-bottom: 0.4rem;
 }
 
-.c3 {
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.c10 > button {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  box-shadow: inset 1px 0 0 rgb(190,190,190);
+}
+
+.c10 > button:first-child {
+  box-shadow: none;
+}
+
+.c10 > button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c10 > button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c10 > button:disabled {
+  background: #028099;
+  color: #ffffff;
+}
+
+.c10 span:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+}
+
+.c10 button {
+  min-width: 98px;
+}
+
+.c10 button::before {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  border-radius: 100px;
+  box-sizing: border-box;
+  line-height: 40px;
+  font-weight: 700;
+  content: 'A';
+}
+
+.c10 button[data-contrast='black']::before {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.c10 button[data-contrast='white']::before {
+  background: #000000;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c10 button[data-contrast='grey']::before {
+  background: #666666;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c9 {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.c0:after {
+  content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
+}
+
+.c4 {
   background-color: #333333;
   padding: 60px 40px;
   color: #ffffff;
 }
 
-.c5 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -109,16 +202,21 @@ exports[`renders StartPage 1`] = `
     class="sc-kLwgWK kIRLtv"
   >
     <div
-      aria-hidden="false"
       class="c0"
+    >
+      asdf
+    </div>
+    <div
+      aria-hidden="false"
+      class="c1"
     >
       <div
         aria-hidden="true"
-        class="c1"
+        class="c2"
       >
         <img
           alt="state seal"
-          class="c2"
+          class="c3"
           src="/seals/Sample-Seal.svg"
         />
       </div>
@@ -173,13 +271,13 @@ exports[`renders StartPage 1`] = `
     </p>
   </main>
   <nav
-    class="c3"
+    class="c4"
   >
     <div
       class="sc-hKwCoD dOmxmu"
     >
       <p
-        class="c4"
+        class="c5"
       >
         <button
           aria-label="Press the right button to advance to the first contest."
@@ -195,45 +293,96 @@ exports[`renders StartPage 1`] = `
         Voter Settings
       </h1>
       <div
-        class="c5"
+        class="c6"
       >
         <p>
           <label
             aria-hidden="true"
-            class="c6"
+            class="c7"
           >
             Text Size
           </label>
           <span
-            class="sc-bqiQRQ c7"
+            class="sc-bqiQRQ c8"
             data-testid="change-text-size-buttons"
           >
             <button
               aria-label=" Text Size: Small"
-              class="sc-egiSv feoAXt"
-              data-size="0"
+              class="sc-egiSv dHUDgX"
+              data-size="S"
               type="button"
-              value="0"
+              value="S"
             >
               A
             </button>
             <button
               aria-label="Selected Text Size: Medium"
-              class="sc-egiSv dGzrLr"
-              data-size="1"
+              class="sc-egiSv KWJA-d"
+              data-size="M"
               type="button"
-              value="1"
+              value="M"
             >
               A
             </button>
             <button
               aria-label=" Text Size: Large"
-              class="sc-egiSv feoAXt"
-              data-size="2"
+              class="sc-egiSv dHUDgX"
+              data-size="L"
               type="button"
-              value="2"
+              value="L"
             >
               A
+            </button>
+            <button
+              aria-label=" Text Size: Extra Large"
+              class="sc-egiSv dHUDgX"
+              data-size="XL"
+              type="button"
+              value="XL"
+            >
+              A
+            </button>
+          </span>
+        </p>
+        <p>
+          <label
+            aria-hidden="true"
+            class="c9"
+          >
+            Contrast
+          </label>
+          <span
+            class="sc-bqiQRQ c10"
+          >
+            <button
+              class="sc-egiSv KWJA-d"
+              data-contrast="black"
+              data-selected="true"
+              type="button"
+            >
+              <span>
+                black
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="white"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                white
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="grey"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                grey
+              </span>
             </button>
           </span>
         </p>
@@ -244,25 +393,25 @@ exports[`renders StartPage 1`] = `
 `;
 
 exports[`renders StartPage with inline SVG 1`] = `
-.c3 {
+.c4 {
   -webkit-animation: hktaaY 10s ease-in-out infinite;
   animation: hktaaY 10s ease-in-out infinite;
 }
 
-.c1 {
+.c2 {
   max-width: 250px;
 }
 
-.c0 {
+.c1 {
   display: block;
   margin: auto;
 }
 
-.c0 div:first-child {
+.c1 div:first-child {
   margin: 0 auto 0.5rem;
 }
 
-.c6 {
+.c7 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -270,60 +419,153 @@ exports[`renders StartPage with inline SVG 1`] = `
   white-space: nowrap;
 }
 
-.c6 > button {
+.c7 > button {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   box-shadow: inset 1px 0 0 rgb(190,190,190);
 }
 
-.c6 > button:first-child {
+.c7 > button:first-child {
   box-shadow: none;
 }
 
-.c6 > button:not(:last-child) {
+.c7 > button:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.c6 > button:not(:first-child) {
+.c7 > button:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.c6 > button:disabled {
+.c7 > button:disabled {
   background: #028099;
   color: #ffffff;
 }
 
-.c6 button {
+.c7 button {
   min-width: 98px;
 }
 
-.c6 button[data-size='0'] {
+.c7 button[data-size='S'] {
   font-size: 22px !important;
 }
 
-.c6 button[data-size='1'] {
+.c7 button[data-size='M'] {
   font-size: 28px !important;
 }
 
-.c6 button[data-size='2'] {
+.c7 button[data-size='L'] {
   font-size: 36px !important;
 }
 
-.c5 {
+.c7 button[data-size='XL'] {
+  font-size: 56px !important;
+}
+
+.c6 {
   display: block;
   margin-bottom: 0.4rem;
 }
 
-.c2 {
+.c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.c9 > button {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  box-shadow: inset 1px 0 0 rgb(190,190,190);
+}
+
+.c9 > button:first-child {
+  box-shadow: none;
+}
+
+.c9 > button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c9 > button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c9 > button:disabled {
+  background: #028099;
+  color: #ffffff;
+}
+
+.c9 span:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+}
+
+.c9 button {
+  min-width: 98px;
+}
+
+.c9 button::before {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  border-radius: 100px;
+  box-sizing: border-box;
+  line-height: 40px;
+  font-weight: 700;
+  content: 'A';
+}
+
+.c9 button[data-contrast='black']::before {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.c9 button[data-contrast='white']::before {
+  background: #000000;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c9 button[data-contrast='grey']::before {
+  background: #666666;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c8 {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.c0:after {
+  content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
+}
+
+.c3 {
   background-color: #333333;
   padding: 60px 40px;
   color: #ffffff;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -348,12 +590,17 @@ exports[`renders StartPage with inline SVG 1`] = `
     class="sc-kLwgWK kIRLtv"
   >
     <div
-      aria-hidden="false"
       class="c0"
+    >
+      asdf
+    </div>
+    <div
+      aria-hidden="false"
+      class="c1"
     >
       <div
         aria-hidden="true"
-        class="c1"
+        class="c2"
       >
         <svg
           version="1.1"
@@ -570,13 +817,13 @@ exports[`renders StartPage with inline SVG 1`] = `
     </p>
   </main>
   <nav
-    class="c2"
+    class="c3"
   >
     <div
       class="sc-hKwCoD dOmxmu"
     >
       <p
-        class="c3"
+        class="c4"
       >
         <button
           aria-label="Press the right button to advance to the first contest."
@@ -592,45 +839,96 @@ exports[`renders StartPage with inline SVG 1`] = `
         Voter Settings
       </h1>
       <div
-        class="c4"
+        class="c5"
       >
         <p>
           <label
             aria-hidden="true"
-            class="c5"
+            class="c6"
           >
             Text Size
           </label>
           <span
-            class="sc-bqiQRQ c6"
+            class="sc-bqiQRQ c7"
             data-testid="change-text-size-buttons"
           >
             <button
               aria-label=" Text Size: Small"
-              class="sc-egiSv feoAXt"
-              data-size="0"
+              class="sc-egiSv dHUDgX"
+              data-size="S"
               type="button"
-              value="0"
+              value="S"
             >
               A
             </button>
             <button
               aria-label="Selected Text Size: Medium"
-              class="sc-egiSv dGzrLr"
-              data-size="1"
+              class="sc-egiSv KWJA-d"
+              data-size="M"
               type="button"
-              value="1"
+              value="M"
             >
               A
             </button>
             <button
               aria-label=" Text Size: Large"
-              class="sc-egiSv feoAXt"
-              data-size="2"
+              class="sc-egiSv dHUDgX"
+              data-size="L"
               type="button"
-              value="2"
+              value="L"
             >
               A
+            </button>
+            <button
+              aria-label=" Text Size: Extra Large"
+              class="sc-egiSv dHUDgX"
+              data-size="XL"
+              type="button"
+              value="XL"
+            >
+              A
+            </button>
+          </span>
+        </p>
+        <p>
+          <label
+            aria-hidden="true"
+            class="c8"
+          >
+            Contrast
+          </label>
+          <span
+            class="sc-bqiQRQ c9"
+          >
+            <button
+              class="sc-egiSv KWJA-d"
+              data-contrast="black"
+              data-selected="true"
+              type="button"
+            >
+              <span>
+                black
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="white"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                white
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="grey"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                grey
+              </span>
             </button>
           </span>
         </p>
@@ -641,25 +939,25 @@ exports[`renders StartPage with inline SVG 1`] = `
 `;
 
 exports[`renders StartPage with no seal 1`] = `
-.c3 {
+.c4 {
   -webkit-animation: hktaaY 10s ease-in-out infinite;
   animation: hktaaY 10s ease-in-out infinite;
 }
 
-.c1 {
+.c2 {
   max-width: 250px;
 }
 
-.c0 {
+.c1 {
   display: block;
   margin: auto;
 }
 
-.c0 div:first-child {
+.c1 div:first-child {
   margin: 0 auto 0.5rem;
 }
 
-.c6 {
+.c7 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -667,60 +965,153 @@ exports[`renders StartPage with no seal 1`] = `
   white-space: nowrap;
 }
 
-.c6 > button {
+.c7 > button {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   box-shadow: inset 1px 0 0 rgb(190,190,190);
 }
 
-.c6 > button:first-child {
+.c7 > button:first-child {
   box-shadow: none;
 }
 
-.c6 > button:not(:last-child) {
+.c7 > button:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.c6 > button:not(:first-child) {
+.c7 > button:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.c6 > button:disabled {
+.c7 > button:disabled {
   background: #028099;
   color: #ffffff;
 }
 
-.c6 button {
+.c7 button {
   min-width: 98px;
 }
 
-.c6 button[data-size='0'] {
+.c7 button[data-size='S'] {
   font-size: 22px !important;
 }
 
-.c6 button[data-size='1'] {
+.c7 button[data-size='M'] {
   font-size: 28px !important;
 }
 
-.c6 button[data-size='2'] {
+.c7 button[data-size='L'] {
   font-size: 36px !important;
 }
 
-.c5 {
+.c7 button[data-size='XL'] {
+  font-size: 56px !important;
+}
+
+.c6 {
   display: block;
   margin-bottom: 0.4rem;
 }
 
-.c2 {
+.c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.c9 > button {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  box-shadow: inset 1px 0 0 rgb(190,190,190);
+}
+
+.c9 > button:first-child {
+  box-shadow: none;
+}
+
+.c9 > button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c9 > button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c9 > button:disabled {
+  background: #028099;
+  color: #ffffff;
+}
+
+.c9 span:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+}
+
+.c9 button {
+  min-width: 98px;
+}
+
+.c9 button::before {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  border-radius: 100px;
+  box-sizing: border-box;
+  line-height: 40px;
+  font-weight: 700;
+  content: 'A';
+}
+
+.c9 button[data-contrast='black']::before {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.c9 button[data-contrast='white']::before {
+  background: #000000;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c9 button[data-contrast='grey']::before {
+  background: #666666;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.c8 {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.c0:after {
+  content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
+}
+
+.c3 {
   background-color: #333333;
   padding: 60px 40px;
   color: #ffffff;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -745,12 +1136,17 @@ exports[`renders StartPage with no seal 1`] = `
     class="sc-kLwgWK kIRLtv"
   >
     <div
-      aria-hidden="false"
       class="c0"
+    >
+      asdf
+    </div>
+    <div
+      aria-hidden="false"
+      class="c1"
     >
       <div
         aria-hidden="true"
-        class="c1"
+        class="c2"
       />
       <div
         class="sc-hKwCoD dOmxmu"
@@ -803,13 +1199,13 @@ exports[`renders StartPage with no seal 1`] = `
     </p>
   </main>
   <nav
-    class="c2"
+    class="c3"
   >
     <div
       class="sc-hKwCoD dOmxmu"
     >
       <p
-        class="c3"
+        class="c4"
       >
         <button
           aria-label="Press the right button to advance to the first contest."
@@ -825,45 +1221,96 @@ exports[`renders StartPage with no seal 1`] = `
         Voter Settings
       </h1>
       <div
-        class="c4"
+        class="c5"
       >
         <p>
           <label
             aria-hidden="true"
-            class="c5"
+            class="c6"
           >
             Text Size
           </label>
           <span
-            class="sc-bqiQRQ c6"
+            class="sc-bqiQRQ c7"
             data-testid="change-text-size-buttons"
           >
             <button
               aria-label=" Text Size: Small"
-              class="sc-egiSv feoAXt"
-              data-size="0"
+              class="sc-egiSv dHUDgX"
+              data-size="S"
               type="button"
-              value="0"
+              value="S"
             >
               A
             </button>
             <button
               aria-label="Selected Text Size: Medium"
-              class="sc-egiSv dGzrLr"
-              data-size="1"
+              class="sc-egiSv KWJA-d"
+              data-size="M"
               type="button"
-              value="1"
+              value="M"
             >
               A
             </button>
             <button
               aria-label=" Text Size: Large"
-              class="sc-egiSv feoAXt"
-              data-size="2"
+              class="sc-egiSv dHUDgX"
+              data-size="L"
               type="button"
-              value="2"
+              value="L"
             >
               A
+            </button>
+            <button
+              aria-label=" Text Size: Extra Large"
+              class="sc-egiSv dHUDgX"
+              data-size="XL"
+              type="button"
+              value="XL"
+            >
+              A
+            </button>
+          </span>
+        </p>
+        <p>
+          <label
+            aria-hidden="true"
+            class="c8"
+          >
+            Contrast
+          </label>
+          <span
+            class="sc-bqiQRQ c9"
+          >
+            <button
+              class="sc-egiSv KWJA-d"
+              data-contrast="black"
+              data-selected="true"
+              type="button"
+            >
+              <span>
+                black
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="white"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                white
+              </span>
+            </button>
+            <button
+              class="sc-egiSv dHUDgX"
+              data-contrast="grey"
+              data-selected="false"
+              type="button"
+            >
+              <span>
+                grey
+              </span>
             </button>
           </span>
         </p>

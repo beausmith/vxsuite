@@ -11,9 +11,13 @@ import {
 } from '@votingworks/types';
 
 import userEvent from '@testing-library/user-event';
-import { CARD_POLLING_INTERVAL } from '@votingworks/ui';
-import * as GLOBALS from '../src/config/globals';
+import {
+  CARD_POLLING_INTERVAL,
+  contrastThemes,
+  sizeThemes,
+} from '@votingworks/ui';
 
+import { ThemeProvider } from 'styled-components';
 import {
   MachineConfig,
   MarkVoterCardFunction,
@@ -24,6 +28,7 @@ import {
 import { BallotContext } from '../src/contexts/ballot_context';
 import { fakeMachineConfig } from './helpers/fake_machine_config';
 import { electionSampleNoSealDefinition } from '../src/data';
+import { DEFAULT_USER_SETTINGS } from '../src/config/globals';
 
 export function render(
   component: React.ReactNode,
@@ -44,7 +49,7 @@ export function render(
     updateTally = jest.fn(),
     updateVote = jest.fn(),
     forceSaveVote = jest.fn(),
-    userSettings = GLOBALS.DEFAULT_USER_SETTINGS,
+    userSettings = DEFAULT_USER_SETTINGS,
     votes = {},
   }: {
     route?: string;
@@ -89,7 +94,14 @@ export function render(
           votes,
         }}
       >
-        <Router history={history}>{component}</Router>
+        <ThemeProvider
+          theme={{
+            size: sizeThemes[userSettings.sizeTheme],
+            contrast: contrastThemes[userSettings.contrastTheme],
+          }}
+        >
+          <Router history={history}>{component}</Router>
+        </ThemeProvider>
       </BallotContext.Provider>
     ),
   };

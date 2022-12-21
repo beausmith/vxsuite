@@ -13,6 +13,13 @@ import { ElectionInfo } from '../components/election_info';
 import { Sidebar } from '../components/sidebar';
 import { SettingsTextSize } from '../components/settings_text_size';
 import { screenOrientation } from '../lib/screen_orientation';
+import { SettingsContrast } from '../components/settings_contrast';
+
+const Test = styled.div`
+  &::after {
+    content: '${({ theme }) => JSON.stringify(theme)}';
+  }
+`;
 
 const SidebarSpacer = styled.div`
   height: 90px;
@@ -85,6 +92,10 @@ export function StartPage(): JSX.Element {
           userSettings={userSettings}
           setUserSettings={setUserSettings}
         />
+        <SettingsContrast
+          userSettings={userSettings}
+          setUserSettings={setUserSettings}
+        />
       </SettingsContainer>
     </React.Fragment>
   );
@@ -107,6 +118,7 @@ export function StartPage(): JSX.Element {
   return (
     <Screen navRight={isLandscape} ref={audioFocus}>
       <Main centerChild padded>
+        <Test>asdf</Test>
         {isPortrait ? (
           <ElectionInfo
             electionDefinition={electionDefinition}

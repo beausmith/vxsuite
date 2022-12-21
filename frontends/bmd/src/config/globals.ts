@@ -1,3 +1,4 @@
+import { ContrastSetting, SizeSetting } from '@votingworks/types';
 import { UserSettings } from './types';
 
 export const IDLE_TIMEOUT_SECONDS = 5 * 60; // VVSG Requirement: 2–5 minutes
@@ -8,14 +9,20 @@ export const BALLOT_PRINTING_TIMEOUT_SECONDS = 5;
 export const BALLOT_INSTRUCTIONS_TIMEOUT_SECONDS = 30;
 export const REPORT_PRINTING_TIMEOUT_SECONDS = 4;
 export const CHECK_ICON = '✓';
-export const FONT_SIZES = [22, 28, 36, 48];
-export const DEFAULT_FONT_SIZE = 1;
-export const LARGE_DISPLAY_FONT_SIZE = 3;
-export const TEXT_SIZE = 1;
 export const WRITE_IN_CANDIDATE_MAX_LENGTH = 40;
 export const QUIT_KIOSK_IDLE_SECONDS = 5 * 60; // 5 minutes
 export const SECURITY_PIN_LENGTH = 6;
+
+export const TEXT_SIZES = [22, 28, 36, 56];
+export const SIZE_THEMES: SizeSetting[] = ['S', 'M', 'L', 'XL'];
+export const DEFAULT_TEXT_SIZE = 'M';
+export const LARGE_DISPLAY_TEXT_SIZE = 'L';
+
+export const CONTRAST_THEMES: ContrastSetting[] = ['black', 'white', 'grey'];
+export const DEFAULT_CONTRAST_THEME = 'black';
+
 export const DEFAULT_USER_SETTINGS: UserSettings = {
-  textSize: TEXT_SIZE,
   showSettingsModal: false,
+  sizeTheme: DEFAULT_TEXT_SIZE,
+  contrastTheme: DEFAULT_CONTRAST_THEME,
 };

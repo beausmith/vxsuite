@@ -4,6 +4,7 @@ import {
   CandidateVote,
   ContestId,
   Contests,
+  ContrastSetting,
   Election,
   ElectionDefinition,
   MachineId,
@@ -11,6 +12,7 @@ import {
   OptionalVote,
   OptionalYesNoVote,
   PrecinctId,
+  SizeSetting,
   VotesDict,
   YesNoContest,
 } from '@votingworks/types';
@@ -146,11 +148,10 @@ export interface Scrollable {
   isScrollable: boolean;
 }
 
-export type TextSizeSetting = 0 | 1 | 2 | 3;
-
 export interface UserSettings {
   showSettingsModal: boolean;
-  textSize: TextSizeSetting;
+  sizeTheme: SizeSetting;
+  contrastTheme: ContrastSetting;
 }
 export type SetUserSettings = (partial: PartialUserSettings) => void;
 export type PartialUserSettings = Partial<UserSettings>;

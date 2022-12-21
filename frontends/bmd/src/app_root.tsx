@@ -51,7 +51,10 @@ import {
   useUsbDrive,
   CARD_POLLING_INTERVAL,
   UnlockMachineScreen,
+  sizeThemes,
+  contrastThemes,
 } from '@votingworks/ui';
+import { ThemeProvider } from 'styled-components';
 import { Ballot } from './components/ballot';
 import * as GLOBALS from './config/globals';
 import {
@@ -474,13 +477,15 @@ export function AppRoot({
   );
 
   function useEffectToggleLargeDisplay() {
-    document.documentElement.style.fontSize = `${
-      GLOBALS.FONT_SIZES[GLOBALS.LARGE_DISPLAY_FONT_SIZE]
-    }px`;
+    // console.log('update text-size:', GLOBALS.LARGE_DISPLAY_TEXT_SIZE);
+    // document.documentElement.style.fontSize = `${
+    //   GLOBALS.TEXT_SIZES[GLOBALS.LARGE_DISPLAY_TEXT_SIZE]
+    // }px`;
     return () => {
-      document.documentElement.style.fontSize = `${
-        GLOBALS.FONT_SIZES[GLOBALS.DEFAULT_FONT_SIZE]
-      }px`;
+      // console.log('reset text-size:', GLOBALS.DEFAULT_TEXT_SIZE);
+      // document.documentElement.style.fontSize = `${
+      //   GLOBALS.TEXT_SIZES[GLOBALS.DEFAULT_TEXT_SIZE]
+      // }px`;
     };
   }
 
@@ -966,7 +971,14 @@ export function AppRoot({
                 votes: votes ?? blankBallotVotes,
               }}
             >
-              <Ballot />
+              <ThemeProvider
+                theme={{
+                  size: sizeThemes[userSettings.sizeTheme],
+                  contrast: contrastThemes[userSettings.contrastTheme],
+                }}
+              >
+                <Ballot />
+              </ThemeProvider>
             </BallotContext.Provider>
           </Gamepad>
         );

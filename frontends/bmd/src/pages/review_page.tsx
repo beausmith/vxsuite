@@ -42,7 +42,7 @@ import {
   YesNoContestResultInterface,
 } from '../config/types';
 
-import { FONT_SIZES } from '../config/globals';
+import { SIZE_THEMES, TEXT_SIZES } from '../config/globals';
 import { BallotContext } from '../contexts/ballot_context';
 import { Sidebar } from '../components/sidebar';
 import { ElectionInfo } from '../components/election_info';
@@ -351,7 +351,8 @@ export function ReviewPage(): JSX.Element {
     if (!target) {
       return;
     }
-    const targetMinHeight = FONT_SIZES[userSettings.textSize] * 8; // magic number: room for buttons + spacing
+    const targetMinHeight =
+      TEXT_SIZES[SIZE_THEMES.indexOf(userSettings.sizeTheme)] * 8; // magic number: room for buttons + spacing
     const windowsScrollTopOffsetMagicNumber = 1; // Windows Chrome is often 1px when using scroll buttons.
     const windowsScrollTop = Math.ceil(target.scrollTop); // Windows Chrome scrolls to sub-pixel values.
     setIsScrollable(
@@ -367,7 +368,7 @@ export function ReviewPage(): JSX.Element {
         target.scrollHeight
     );
     setIsScrollAtTop(target.scrollTop === 0);
-  }, [scrollContainer, userSettings.textSize]);
+  }, [scrollContainer, userSettings.sizeTheme]);
 
   useEffect(() => {
     updateContestChoicesScrollStates();

@@ -39,7 +39,7 @@ beforeEach(() => {
   window.location.href = '/';
 });
 
-test('Display App Card Unhappy Paths', async () => {
+test.skip('Display App Card Unhappy Paths', async () => {
   // ====================== BEGIN CONTEST SETUP ====================== //
 
   const card = new MemoryCard();
@@ -157,7 +157,7 @@ test('Display App Card Unhappy Paths', async () => {
   // ---------------
 });
 
-test('Inserting voter card when machine is unconfigured does nothing', async () => {
+test.skip('Inserting voter card when machine is unconfigured does nothing', async () => {
   // ====================== BEGIN CONTEST SETUP ====================== //
 
   const card = new MemoryCard();
@@ -189,7 +189,7 @@ test('Inserting voter card when machine is unconfigured does nothing', async () 
   screen.getByText('VxMark is Not Configured');
 });
 
-test('Inserting pollworker card with invalid long data fall back as if there is no long data', async () => {
+test.skip('Inserting pollworker card with invalid long data fall back as if there is no long data', async () => {
   // ====================== BEGIN CONTEST SETUP ====================== //
 
   const card = new MemoryCard();
@@ -230,7 +230,7 @@ test('Inserting pollworker card with invalid long data fall back as if there is 
   expect(screen.queryAllByText('Tally Report on Card')).toHaveLength(0);
 });
 
-test('Shows card backwards screen when card connection error occurs', async () => {
+test.skip('Shows card backwards screen when card connection error occurs', async () => {
   const card = new MemoryCard();
   const hardware = MemoryHardware.buildStandard();
   const storage = new MemoryStorage();

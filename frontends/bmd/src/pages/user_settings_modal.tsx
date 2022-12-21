@@ -5,6 +5,7 @@ import { BallotContext } from '../contexts/ballot_context';
 import { SettingsTextSize } from '../components/settings_text_size';
 import { handleGamepadKeyboardEvent } from '../lib/gamepad';
 import { DEFAULT_USER_SETTINGS } from '../config/globals';
+import { SettingsContrast } from '../components/settings_contrast';
 
 export function VoterSettingsModal(): JSX.Element {
   const { userSettings, setUserSettings } = useContext(BallotContext);
@@ -40,6 +41,10 @@ export function VoterSettingsModal(): JSX.Element {
           <h1>Voter Settings</h1>
           <span aria-label="Navigate through the settings using the up and down buttons. Use the select button to select a setting. When you are done, use the right or left arrow to close settings." />
           <SettingsTextSize
+            userSettings={userSettings}
+            setUserSettings={setUserSettings}
+          />
+          <SettingsContrast
             userSettings={userSettings}
             setUserSettings={setUserSettings}
           />
