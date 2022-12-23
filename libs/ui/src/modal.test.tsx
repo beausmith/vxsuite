@@ -3,7 +3,6 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Modal, ModalWidth } from './modal';
 import { Button } from './button';
-import { fontSizeTheme } from './themes';
 import { FONT_SIZES, LARGE_DISPLAY_FONT_SIZE } from './globals';
 
 describe('Modal', () => {
@@ -63,12 +62,8 @@ describe('Modal', () => {
   });
 
   it('can use theme', () => {
-    render(
-      <Modal
-        theme={fontSizeTheme.large}
-        content="Do you want to do the thing?"
-      />
-    );
+    // TODO: Need to add content in Prose block with 'scale' prop
+    render(<Modal content="Do you want to do the thing?" />);
 
     const modal = screen.getByRole('alertdialog');
     expect(modal).toHaveStyle({

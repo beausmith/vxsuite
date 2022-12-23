@@ -21,7 +21,7 @@ export function SaveCardScreen(): JSX.Element {
     return <Redirect to="/remove" />;
   }
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter id="audiofocus">
           <ProgressBar progress={progress} duration={saveDelay} />

@@ -16,4 +16,5 @@ export * from './printing';
 export * from './result';
 export * from './smartcard_auth';
 export * from './tallies';
+export * from './user_interface';
 export * from './voting_method';

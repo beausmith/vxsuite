@@ -5,15 +5,15 @@ import { usbstick, isVxDev } from '@votingworks/utils';
 import { Button } from './button';
 import { Main } from './main';
 import { Prose } from './prose';
+import { Text } from './text';
 import { RebootFromUsbButton } from './reboot_from_usb_button';
 import { RebootToBiosButton } from './reboot_to_bios_button';
 import { UnconfigureMachineButton } from './unconfigure_machine_button';
 import { ResetPollsToPausedButton } from './reset_polls_to_paused_button';
 
 interface Props {
-  displayRemoveCardToLeavePrompt?: boolean;
   logger: Logger;
-  primaryText: React.ReactNode;
+  currentElectionInstructions: React.ReactNode;
   unconfigureMachine: () => Promise<void>;
   resetPollsToPausedText?: string;
   resetPollsToPaused?: () => Promise<void>;
@@ -26,9 +26,8 @@ interface Props {
  * machines
  */
 export function SystemAdministratorScreenContents({
-  displayRemoveCardToLeavePrompt,
   logger,
-  primaryText,
+  currentElectionInstructions,
   unconfigureMachine,
   resetPollsToPausedText,
   resetPollsToPaused,
@@ -38,10 +37,9 @@ export function SystemAdministratorScreenContents({
   return (
     <Main padded centerChild>
       <Prose textCenter>
-        <p>{primaryText}</p>
-        {displayRemoveCardToLeavePrompt && (
-          <p>Remove the System Administrator card to leave this screen.</p>
-        )}
+        <Text italic>{currentElectionInstructions}</Text>
+        <h1>System Administrator Actions</h1>
+        <Text italic>Remove the card to continue.</Text>
         {resetPollsToPausedText && (
           <p>
             <ResetPollsToPausedButton
@@ -55,9 +53,7 @@ export function SystemAdministratorScreenContents({
           <RebootFromUsbButton
             usbDriveStatus={usbDriveStatus}
             logger={logger}
-          />
-        </p>
-        <p>
+          />{' '}
           <RebootToBiosButton logger={logger} />
         </p>
         <p>

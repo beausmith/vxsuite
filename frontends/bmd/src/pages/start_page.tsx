@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { getPartyPrimaryAdjectiveFromBallotStyle } from '@votingworks/types';
-import { LinkButton, Main, Screen, Prose } from '@votingworks/ui';
+import { Button, LinkButton, Main, Screen, Prose } from '@votingworks/ui';
 
 import pluralize from 'pluralize';
 import { BallotContext } from '../contexts/ballot_context';
@@ -15,11 +15,11 @@ import { SettingsTextSize } from '../components/settings_text_size';
 import { screenOrientation } from '../lib/screen_orientation';
 import { SettingsContrast } from '../components/settings_contrast';
 
-const Test = styled.div`
-  &::after {
-    content: '${({ theme }) => JSON.stringify(theme)}';
-  }
-`;
+// const Test = styled.div`
+//   &::after {
+//     content: '${({ theme }) => JSON.stringify(theme)}';
+//   }
+// `;
 
 const SidebarSpacer = styled.div`
   height: 90px;
@@ -27,14 +27,19 @@ const SidebarSpacer = styled.div`
 
 const Footer = styled.nav`
   background-color: #333333;
-  padding: 60px 40px;
+  padding: 60px 40px 40px;
   color: #ffffff;
 `;
 
 const SettingsContainer = styled.div`
+  margin-top: 60px;
+`;
+
+const IndividualSettingsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: -0.5em;
   border: 1px solid #808080;
   border-width: 1px 0;
   padding: 1rem 0;
@@ -85,9 +90,9 @@ export function StartPage(): JSX.Element {
   }, []);
 
   const settingsContainer = (
-    <React.Fragment>
-      <h1>Voter Settings</h1>
-      <SettingsContainer>
+    <SettingsContainer>
+      <h4>Voter Settings</h4>
+      <IndividualSettingsContainer>
         <SettingsTextSize
           userSettings={userSettings}
           setUserSettings={setUserSettings}
@@ -96,8 +101,8 @@ export function StartPage(): JSX.Element {
           userSettings={userSettings}
           setUserSettings={setUserSettings}
         />
-      </SettingsContainer>
-    </React.Fragment>
+      </IndividualSettingsContainer>
+    </SettingsContainer>
   );
 
   const startVotingButton = (
@@ -117,8 +122,7 @@ export function StartPage(): JSX.Element {
 
   return (
     <Screen navRight={isLandscape} ref={audioFocus}>
-      <Main centerChild padded>
-        <Test>asdf</Test>
+      <Main centerChild padded={isLandscape}>
         {isPortrait ? (
           <ElectionInfo
             electionDefinition={electionDefinition}
@@ -142,6 +146,29 @@ export function StartPage(): JSX.Element {
             {settingsContainer}
           </Prose>
         )}
+        <p>
+          <Button small onPress={onStart}>
+            Default small
+          </Button>{' '}
+          <Button small primary onPress={onStart}>
+            Primary small
+          </Button>
+        </p>
+        <p>
+          <Button onPress={onStart}>Default</Button>{' '}
+          <Button primary onPress={onStart}>
+            Primary
+          </Button>
+        </p>
+        <p>
+          <Button large onPress={onStart}>
+            Default large
+          </Button>{' '}
+          <Button large primary onPress={onStart}>
+            Primary large
+          </Button>
+        </p>
+
         <p className="screen-reader-only">
           When voting with the text-to-speech audio, use the accessible
           controller to navigate your ballot. To navigate through the contests,

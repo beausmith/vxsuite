@@ -94,14 +94,14 @@ type AppAction =
   | { type: 'updateTestMode'; isTestMode: boolean }
   | { type: 'resetElectionSession' }
   | {
-      type: 'refreshStateFromBackend';
-      scannerConfig: Scan.PrecinctScannerConfig;
-    }
+    type: 'refreshStateFromBackend';
+    scannerConfig: Scan.PrecinctScannerConfig;
+  }
   | { type: 'updatePrecinctSelection'; precinctSelection: PrecinctSelection }
   | {
-      type: 'updateMarkThresholdOverrides';
-      markThresholdOverrides?: MarkThresholds;
-    }
+    type: 'updateMarkThresholdOverrides';
+    markThresholdOverrides?: MarkThresholds;
+  }
   | { type: 'updatePollsState'; pollsState: PollsState }
   | { type: 'toggleIsSoundMuted' }
   | { type: 'setMachineConfig'; machineConfig: MachineConfig };
@@ -327,7 +327,7 @@ export function AppRoot({
   const needsToReplaceBallotBag =
     scannerStatus &&
     scannerStatus.ballotsCounted >=
-      ballotCountWhenBallotBagLastReplaced + BALLOT_BAG_CAPACITY;
+    ballotCountWhenBallotBagLastReplaced + BALLOT_BAG_CAPACITY;
 
   // The scan service waits to receive a command to scan or accept a ballot. The
   // frontend controls when this happens so that ensure we're only scanning when
@@ -372,13 +372,11 @@ export function AppRoot({
     return (
       <ScreenMainCenterChild infoBar>
         <SystemAdministratorScreenContents
-          displayRemoveCardToLeavePrompt
           logger={logger}
-          primaryText={
+          currentElectionInstructions={
             <React.Fragment>
-              To adjust settings for the current election,
-              <br />
-              please insert an Election Manager or Poll Worker card.
+              To adjust settings for the current election, please insert an
+              election manager or poll worker card.
             </React.Fragment>
           }
           unconfigureMachine={() =>

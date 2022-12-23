@@ -13,7 +13,7 @@ export function SetupPrinterPage({
   useEffect(useEffectToggleLargeDisplay, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main padded centerChild>
         <Prose textCenter>
           <h1>No Printer Detected</h1>

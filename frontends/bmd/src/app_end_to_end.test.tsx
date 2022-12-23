@@ -210,7 +210,7 @@ test('MarkAndPrint end-to-end flow', async () => {
 
   // Adjust Text Size on Start Page
   expect(screen.getAllByLabelText('Text Size:', { exact: false }).length).toBe(
-    3
+    4
   );
   userEvent.click(screen.getByLabelText('Text Size: Large'));
   expect(window.document.documentElement.style.fontSize).toBe('36px');
@@ -232,7 +232,7 @@ test('MarkAndPrint end-to-end flow', async () => {
   userEvent.click(screen.getByText('Settings'));
   screen.getByText('Voter Settings');
   expect(screen.getAllByLabelText('Text Size:', { exact: false }).length).toBe(
-    3
+    4
   );
   userEvent.keyboard('{ArrowRight}');
   expect(screen.getByLabelText('Selected Text Size: Small')).toHaveFocus();

@@ -73,10 +73,10 @@ export function InsertCardScreen({
   })();
 
   return (
-    <Screen white>
+    <Screen data-foo="foo3">
       {!isLiveMode && <TestMode />}
-      <Main centerChild>
-        <Prose textCenter id="audiofocus">
+      <Main centerChild padded>
+        <Prose scale={1} textCenter id="audiofocus">
           {showNoChargerAttachedWarning && (
             <Text warning small>
               <strong>No Power Detected.</strong> Please ask a poll worker to

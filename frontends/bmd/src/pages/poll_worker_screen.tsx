@@ -340,9 +340,9 @@ function ScannerReportModal({
 }
 
 const VotingSession = styled.div`
-  margin: 30px 0 60px;
-  border: 2px solid #000000;
-  border-radius: 20px;
+  margin: 30px 0 100px;
+  border: 1px solid #000000;
+  border-radius: 10px;
   padding: 30px 40px;
   & > *:first-child {
     margin-top: 0;
@@ -537,7 +537,7 @@ export function PollWorkerScreen({
 
   if (hasVotes && pollworkerAuth.activatedCardlessVoter) {
     return (
-      <Screen white>
+      <Screen>
         <Main centerChild>
           <Prose textCenter>
             <h1
@@ -564,12 +564,28 @@ export function PollWorkerScreen({
     const precinct = find(election.precincts, (p) => p.id === precinctId);
 
     return (
-      <Screen white>
-        <Main centerChild>
+      <Screen>
+        <Main centerChild padded>
           <Prose id="audiofocus">
-            <h1>
-              {`Voting Session Active: ${ballotStyleId} at ${precinct.name}`}
-            </h1>
+            <Text as="h1" center>
+              Voting Session Active
+            </Text>
+            <VotingSession>
+              <Text bold center>
+                <NoWrap>
+                  <Text as="span" light>
+                    Ballot Style
+                  </Text>{' '}
+                  {ballotStyleId}
+                </NoWrap>{' '}
+                <NoWrap>
+                  <Text as="span" light>
+                    at
+                  </Text>{' '}
+                  {precinct.name}
+                </NoWrap>
+              </Text>
+            </VotingSession>
             <ol>
               <li>
                 Instruct the voter to press the{' '}
@@ -580,10 +596,10 @@ export function PollWorkerScreen({
               </li>
               <li>Remove the poll worker card to continue.</li>
             </ol>
+            <br />
             <HorizontalRule>or</HorizontalRule>
-            <Text center>Deactivate this voter session to start over.</Text>
             <Text center>
-              <Button small onPress={resetCardlessVoterSession}>
+              <Button onPress={resetCardlessVoterSession}>
                 Deactivate Voting Session
               </Button>
             </Text>
@@ -606,7 +622,7 @@ export function PollWorkerScreen({
 
   return (
     <React.Fragment>
-      <Screen white>
+      <Screen>
         {!isLiveMode && <TestMode />}
         <Main padded>
           <Prose maxWidth={false}>
@@ -641,8 +657,11 @@ export function PollWorkerScreen({
                   <h1>Start a New Voting Session</h1>
                   {appPrecinct.kind === 'AllPrecincts' && (
                     <React.Fragment>
-                      <h2>1. Select Voter’s Precinct</h2>
-                      <ButtonList data-testid="precincts">
+                      <h4>1. Select Voter’s Precinct</h4>
+                      <ButtonList
+                        data-testid="precincts"
+                        style={{ marginTop: '-0.5em' }}
+                      >
                         {election.precincts.map((precinct) => (
                           <Button
                             fullWidth
@@ -661,12 +680,15 @@ export function PollWorkerScreen({
                       </ButtonList>
                     </React.Fragment>
                   )}
-                  <h2>
+                  <h4>
                     {appPrecinct.kind === 'AllPrecincts' ? '2. ' : ''}Select
                     Voter’s Ballot Style
-                  </h2>
+                  </h4>
                   {selectedCardlessVoterPrecinctId ? (
-                    <ButtonList data-testid="ballot-styles">
+                    <ButtonList
+                      data-testid="ballot-styles"
+                      style={{ marginTop: '-0.5em' }}
+                    >
                       {precinctBallotStyles.map((ballotStyle) => (
                         <Button
                           fullWidth

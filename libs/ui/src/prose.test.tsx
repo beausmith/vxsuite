@@ -57,17 +57,8 @@ describe('renders Prose', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  test('with theme', () => {
-    const { container } = render(
-      <Prose
-        theme={{
-          fontSize: '10px',
-          color: '#666666',
-        }}
-      >
-        {proseContent}
-      </Prose>
-    );
+  test('with scale', () => {
+    const { container } = render(<Prose scale={2}>{proseContent}</Prose>);
     expect(container.firstChild).toMatchSnapshot();
   });
 });

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Screen } from './screen';
 import { Main } from './main';
 import { Prose } from './prose';
-import { fontSizeTheme } from './themes';
 
 const RemoveCardImage = styled.img`
   margin: 0 auto -1rem;
@@ -16,9 +15,9 @@ interface Props {
 
 export function RemoveCardScreen({ productName }: Props): JSX.Element {
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
-        <Prose textCenter theme={fontSizeTheme.medium}>
+        <Prose textCenter scale={2}>
           <RemoveCardImage aria-hidden src="/assets/remove-card.svg" alt="" />
           <h1>{productName} Unlocked</h1>
           <p>Remove card to continue.</p>

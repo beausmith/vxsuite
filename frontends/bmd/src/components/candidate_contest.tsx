@@ -312,7 +312,9 @@ export function CandidateContest({
         <ContentHeader id="contest-header">
           <Prose id="audiofocus">
             <h1 aria-label={`${contest.section} ${contest.title}.`}>
-              <ContestSection>{contest.section}</ContestSection>
+              <Text as="div" small>
+                {contest.section}
+              </Text>
               {contest.title}
             </h1>
             <p>

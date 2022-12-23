@@ -557,10 +557,10 @@ export function AppRoot({ card, hardware, logger }: AppRootProps): JSX.Element {
         <Screen>
           <SystemAdministratorScreenContents
             logger={logger}
-            primaryText={
+            currentElectionInstructions={
               <React.Fragment>
                 To adjust settings for the current election, please insert an
-                Election Manager card.
+                election manager card.
               </React.Fragment>
             }
             unconfigureMachine={() =>

@@ -15,7 +15,7 @@ export function WrongPrecinctScreen({
   useEffect(triggerAudioFocus, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter id="audiofocus">
           <h1>Invalid Card Data</h1>

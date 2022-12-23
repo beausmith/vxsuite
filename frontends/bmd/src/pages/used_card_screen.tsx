@@ -16,7 +16,7 @@ export function UsedCardScreen({
   useEffect(triggerAudioFocus, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter id="audiofocus">
           <h1>Used Card</h1>

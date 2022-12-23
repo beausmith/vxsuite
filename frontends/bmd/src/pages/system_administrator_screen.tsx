@@ -26,17 +26,15 @@ export function SystemAdministratorScreen({
   usbDriveStatus,
 }: Props): JSX.Element {
   return (
-    <Screen white>
+    <Screen>
       <SystemAdministratorScreenContents
-        displayRemoveCardToLeavePrompt
         logger={logger}
         resetPollsToPausedText={resetPollsToPausedText}
         resetPollsToPaused={resetPollsToPaused}
-        primaryText={
+        currentElectionInstructions={
           <React.Fragment>
-            To adjust settings for the current election,
-            <br />
-            please insert an Election Manager or Poll Worker card.
+            To adjust settings for the current election, please insert an
+            election manager or poll worker card.
           </React.Fragment>
         }
         unconfigureMachine={unconfigureMachine}

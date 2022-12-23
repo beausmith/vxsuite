@@ -95,7 +95,7 @@ export function PrintPage(): JSX.Element {
   }, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter id="audiofocus">
           <p>

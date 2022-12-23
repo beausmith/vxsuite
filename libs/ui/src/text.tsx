@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import DomPurify from 'dompurify';
 
 import * as GLOBALS from './globals';
+import { cssFontSizeMinPixels } from './themes/size';
+import { defaultTheme } from './themes/default';
 
 export const successTextGreen = 'rgb(0,128,0)';
 
@@ -76,7 +78,8 @@ export const Text = styled('p')<Props>`
       (white && '#FFFFFF') ??
       undefined};
   }
-  font-size: ${({ small }) => (small ? '0.8em' : undefined)};
+  font-size: ${({ small }) =>
+    small ? `clamp(${cssFontSizeMinPixels}, 0.8em, 0.8em)` : undefined};
   font-weight: ${({ bold, light, normal }) =>
     (bold && '600') ?? (light && '300') ?? (normal && '400') ?? undefined};
   font-style: ${({ italic }) => (italic ? 'italic' : undefined)};
@@ -84,6 +87,10 @@ export const Text = styled('p')<Props>`
   /* stylelint-disable-next-line value-keyword-case, order/properties-order */
   ${({ warningIcon, voteIcon }) => (warningIcon || voteIcon) && iconStyles}
 `;
+
+Text.defaultProps = {
+  theme: defaultTheme,
+};
 
 interface TextWithLineBreaksProps extends Props {
   text: string;

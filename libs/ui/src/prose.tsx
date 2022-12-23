@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Theme } from './themes';
+import { defaultTheme, Theme } from './themes/default';
 
 // Prose!
 // Readable text content with typographic hierarchy using simple semantic html.
@@ -18,38 +18,40 @@ import { Theme } from './themes';
 // For example useage, search codebase for "<Prose" (without closing bracket)
 
 export interface ProseProps {
-  theme?: Theme;
+  theme: Theme;
+  scale?: number;
   compact?: boolean;
   maxWidth?: boolean;
   textCenter?: boolean;
   textRight?: boolean;
 }
 
+// &::before {
+//   content: '${({ theme }) => JSON.stringify({ theme })}';
+// }
+
 export const Prose = styled('div')<ProseProps>`
   margin: ${({ textCenter }) => (textCenter ? '0 auto' : undefined)};
   max-width: ${({ maxWidth = true }) => (maxWidth ? '66ch' : undefined)};
   text-align: ${({ textCenter, textRight }) =>
     (textCenter && 'center') || (textRight && 'right')};
-  line-height: 1.2;
-  color: ${({ theme }) => theme.color};
-  font-size: ${({ theme }) => theme.fontSize};
+  line-height: ${({ compact, theme }) => (compact ? 1 : theme.size.lineHeight)};
   & h1 {
-    margin: 2em 0 1em;
-    line-height: 1.1;
-    font-size: 1.5em;
+    margin: 1em 0 0.5em;
+    font-size: ${({ theme, scale = 1 }) => theme.size.h1 * scale}em;
   }
   & h2 {
     margin: 1.5em 0 0.75em;
-    font-size: 1.25em;
+    font-size: ${({ theme, scale = 1 }) => theme.size.h2 * scale}em;
   }
   & h3 {
-    font-size: 1.17em;
+    font-size: ${({ theme, scale = 1 }) => theme.size.h3 * scale}em;
   }
   & h4 {
-    font-size: 1em;
+    font-size: ${({ theme, scale = 1 }) => theme.size.h4 * scale}em;
   }
-  & h5 {
-    font-size: 0.9em;
+  p {
+    font-size: ${({ scale = 1 }) => scale}em;
   }
   & h3,
   & h4,
@@ -61,8 +63,12 @@ export const Prose = styled('div')<ProseProps>`
     margin-top: ${({ compact }) => (compact ? '0' : '1em')};
     margin-bottom: ${({ compact }) => (compact ? '0' : '1em')};
   }
-  & h1 + h2 {
-    margin-top: -0.75em;
+  & h1 {
+    & + h2,
+    & + h3,
+    & + h4 {
+      margin-top: -0.5em;
+    }
   }
   & h1,
   & h2 {
@@ -95,3 +101,7 @@ export const Prose = styled('div')<ProseProps>`
     border-top: 0.1em solid #666666;
   }
 `;
+
+Prose.defaultProps = {
+  theme: defaultTheme,
+};

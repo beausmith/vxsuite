@@ -134,31 +134,31 @@ exports[`renders StartPage 1`] = `
 
 .c10 button::before {
   display: block;
-  width: 44px;
-  height: 44px;
   margin: auto;
   border-radius: 100px;
   box-sizing: border-box;
+  width: 44px;
+  height: 44px;
   line-height: 40px;
   font-weight: 700;
   content: 'A';
 }
 
 .c10 button[data-contrast='black']::before {
-  background: #ffffff;
   border: 2px solid #000000;
+  background: #ffffff;
   color: #000000;
 }
 
 .c10 button[data-contrast='white']::before {
-  background: #000000;
   border: 2px solid #ffffff;
+  background: #000000;
   color: #ffffff;
 }
 
 .c10 button[data-contrast='grey']::before {
-  background: #666666;
   border: 2px solid #ffffff;
+  background: #666666;
   color: #ffffff;
 }
 
@@ -167,7 +167,7 @@ exports[`renders StartPage 1`] = `
   margin-bottom: 0.4rem;
 }
 
-.c0:after {
+.c0::after {
   content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
 }
 
@@ -522,31 +522,31 @@ exports[`renders StartPage with inline SVG 1`] = `
 
 .c9 button::before {
   display: block;
-  width: 44px;
-  height: 44px;
   margin: auto;
   border-radius: 100px;
   box-sizing: border-box;
+  width: 44px;
+  height: 44px;
   line-height: 40px;
   font-weight: 700;
   content: 'A';
 }
 
 .c9 button[data-contrast='black']::before {
-  background: #ffffff;
   border: 2px solid #000000;
+  background: #ffffff;
   color: #000000;
 }
 
 .c9 button[data-contrast='white']::before {
-  background: #000000;
   border: 2px solid #ffffff;
+  background: #000000;
   color: #ffffff;
 }
 
 .c9 button[data-contrast='grey']::before {
-  background: #666666;
   border: 2px solid #ffffff;
+  background: #666666;
   color: #ffffff;
 }
 
@@ -555,7 +555,7 @@ exports[`renders StartPage with inline SVG 1`] = `
   margin-bottom: 0.4rem;
 }
 
-.c0:after {
+.c0::after {
   content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
 }
 
@@ -1068,31 +1068,31 @@ exports[`renders StartPage with no seal 1`] = `
 
 .c9 button::before {
   display: block;
-  width: 44px;
-  height: 44px;
   margin: auto;
   border-radius: 100px;
   box-sizing: border-box;
+  width: 44px;
+  height: 44px;
   line-height: 40px;
   font-weight: 700;
   content: 'A';
 }
 
 .c9 button[data-contrast='black']::before {
-  background: #ffffff;
   border: 2px solid #000000;
+  background: #ffffff;
   color: #000000;
 }
 
 .c9 button[data-contrast='white']::before {
-  background: #000000;
   border: 2px solid #ffffff;
+  background: #000000;
   color: #ffffff;
 }
 
 .c9 button[data-contrast='grey']::before {
-  background: #666666;
   border: 2px solid #ffffff;
+  background: #666666;
   color: #ffffff;
 }
 
@@ -1101,7 +1101,7 @@ exports[`renders StartPage with no seal 1`] = `
   margin-bottom: 0.4rem;
 }
 
-.c0:after {
+.c0::after {
   content: '{"size":{"label":"Medium","text":14,"h1":1.2,"h2":1.1,"h3":1,"h4":0.8},"contrast":{"foreground":"black","background":"white"}}';
 }
 

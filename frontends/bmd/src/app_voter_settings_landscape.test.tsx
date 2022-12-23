@@ -103,7 +103,7 @@ test('MarkAndPrint: voter settings in landscape orientation', async () => {
 
   // Adjust Text Size on Start Page
   expect(screen.getAllByLabelText('Text Size:', { exact: false }).length).toBe(
-    3
+    4
   );
   userEvent.click(screen.getByLabelText('Text Size: Small'));
   expect(window.document.documentElement.style.fontSize).toBe('22px');

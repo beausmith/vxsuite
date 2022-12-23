@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Main } from './main';
 import { Prose } from './prose';
 import { Screen } from './screen';
-import { fontSizeTheme } from './themes';
 
 function doNothing() {
   // do nothing
@@ -25,9 +24,9 @@ export function SetupCardReaderPage({
     : 'Please connect the card reader to continue.';
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
-        <Prose textCenter maxWidth={false} theme={fontSizeTheme.large}>
+        <Prose textCenter maxWidth={false} scale={2}>
           <h1>Card Reader Not Detected</h1>
           <p>{connectMessage}</p>
         </Prose>

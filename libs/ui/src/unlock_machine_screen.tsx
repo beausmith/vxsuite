@@ -9,32 +9,16 @@ import {
 
 import { Screen } from './screen';
 import { Main } from './main';
-import { Text } from './text';
+import { Monospace, Text } from './text';
 import { Prose } from './prose';
-import { fontSizeTheme } from './themes';
 import { NumberPad } from './number_pad';
 
 import { SECURITY_PIN_LENGTH } from './globals';
 
-const NumberPadWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  font-size: 1em;
-  > div {
-    width: 400px;
-  }
+const NumberPadWrapper = styled.p`
   *:focus {
     outline: none;
   }
-`;
-
-const EnteredCode = styled.div`
-  margin-top: 5px;
-  text-align: center;
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: 600;
 `;
 
 type CheckingPassCodeAuth =
@@ -43,13 +27,9 @@ type CheckingPassCodeAuth =
 
 interface Props {
   auth: CheckingPassCodeAuth;
-  grayBackground?: boolean;
 }
 
-export function UnlockMachineScreen({
-  auth,
-  grayBackground,
-}: Props): JSX.Element {
+export function UnlockMachineScreen({ auth }: Props): JSX.Element {
   assert(auth.status === 'checking_passcode');
 
   const [currentPasscode, setCurrentPasscode] = useState('');
@@ -91,11 +71,13 @@ export function UnlockMachineScreen({
   }
 
   return (
-    <Screen white={!grayBackground}>
-      <Main centerChild>
-        <Prose textCenter theme={fontSizeTheme.medium} maxWidth={false}>
+    <Screen>
+      <Main centerChild padded>
+        <Prose textCenter scale={1.25} maxWidth={false}>
           {primarySentence}
-          <EnteredCode>{currentPasscodeDisplayString}</EnteredCode>
+          <Text bold>
+            <Monospace>{currentPasscodeDisplayString}</Monospace>
+          </Text>
           <NumberPadWrapper>
             <NumberPad
               onButtonPress={handleNumberEntry}

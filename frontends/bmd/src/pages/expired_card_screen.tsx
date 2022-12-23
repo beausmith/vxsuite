@@ -15,7 +15,7 @@ export function ExpiredCardScreen({
   useEffect(triggerAudioFocus, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter id="audiofocus">
           <h1>Expired Card</h1>

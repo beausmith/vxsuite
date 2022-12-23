@@ -13,7 +13,7 @@ export function SetupPowerPage({
   useEffect(useEffectToggleLargeDisplay, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main padded centerChild>
         <Prose textCenter>
           <h1>

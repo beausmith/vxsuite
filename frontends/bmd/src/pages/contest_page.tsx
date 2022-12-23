@@ -92,7 +92,7 @@ export function ContestPage(): JSX.Element {
   }, [contest, vote, votes]);
 
   const Breadcrumbs = styled.div`
-    padding: 30px 30px 0;
+    padding: 20px 30px 0;
   `;
 
   const nextContestButton = (

@@ -2,15 +2,25 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Button } from './button';
 
-export const NumberPadContainer = styled.div`
+const buttonSize = 150;
+const gapSize = 5;
+
+export const NumberPadContainer = styled.span`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  > button {
+  margin: auto;
+  width: ${buttonSize * 3 + gapSize * 2}px;
+  gap: 5px;
+  & > span {
     display: flex;
-    justify-content: center;
-    margin: 2px;
-    width: 26%;
+    width: ${buttonSize}px;
+    height: ${buttonSize}px;
+    > button {
+      flex: 1;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 `;
 
@@ -63,46 +73,70 @@ export function NumberPad({
       onKeyPress={onKeyPress}
       onKeyDown={onKeyDown}
     >
-      <Button onPress={useCallback(() => onButtonPress(1), [onButtonPress])}>
-        1
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(2), [onButtonPress])}>
-        2
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(3), [onButtonPress])}>
-        3
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(4), [onButtonPress])}>
-        4
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(5), [onButtonPress])}>
-        5
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(6), [onButtonPress])}>
-        6
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(7), [onButtonPress])}>
-        7
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(8), [onButtonPress])}>
-        8
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(9), [onButtonPress])}>
-        9
-      </Button>
-      <Button onPress={onClear}>
-        <span role="img" aria-label="clear">
-          ✖
-        </span>
-      </Button>
-      <Button onPress={useCallback(() => onButtonPress(0), [onButtonPress])}>
-        0
-      </Button>
-      <Button onPress={onBackspace}>
-        <span role="img" aria-label="backspace">
-          ⌫
-        </span>
-      </Button>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(1), [onButtonPress])}>
+          1
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(2), [onButtonPress])}>
+          2
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(3), [onButtonPress])}>
+          3
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(4), [onButtonPress])}>
+          4
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(5), [onButtonPress])}>
+          5
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(6), [onButtonPress])}>
+          6
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(7), [onButtonPress])}>
+          7
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(8), [onButtonPress])}>
+          8
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(9), [onButtonPress])}>
+          9
+        </Button>
+      </span>
+      <span>
+        <Button onPress={onClear}>
+          <span role="img" aria-label="clear">
+            ✖
+          </span>
+        </Button>
+      </span>
+      <span>
+        <Button onPress={useCallback(() => onButtonPress(0), [onButtonPress])}>
+          0
+        </Button>
+      </span>
+      <span>
+        <Button onPress={onBackspace}>
+          <span role="img" aria-label="backspace">
+            ⌫
+          </span>
+        </Button>
+      </span>
     </NumberPadContainer>
   );
 }

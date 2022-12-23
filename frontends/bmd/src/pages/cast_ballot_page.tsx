@@ -43,7 +43,7 @@ export function CastBallotPage({
 }: Props): JSX.Element {
   const isUsingVoterCard = showPostVotingInstructions === 'card';
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <Prose textCenter maxWidth={false} id="audiofocus">
           <h1 aria-label="You’re almost done.">You’re Almost Done</h1>

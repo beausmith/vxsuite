@@ -202,7 +202,7 @@ export function PrintOnlyScreen({
   }
 
   return (
-    <Screen white>
+    <Screen>
       {!isVoterCardPresent && !isLiveMode && <TestMode />}
       <Main centerChild style={{ position: 'relative' }}>
         {renderContent()}

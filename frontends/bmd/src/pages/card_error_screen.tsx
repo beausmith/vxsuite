@@ -21,7 +21,7 @@ export function CardErrorScreen({
   useEffect(triggerAudioFocus, []);
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild>
         <div>
           <RotateCardImage

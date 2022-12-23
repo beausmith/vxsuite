@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { DippedSmartcardAuth, InsertedSmartcardAuth } from '@votingworks/types';
 
-import { fontSizeTheme } from './themes';
 import { Main } from './main';
 import { Prose } from './prose';
 import { Screen } from './screen';
@@ -55,10 +54,10 @@ export function InvalidCardScreen({
   }
 
   return (
-    <Screen white>
+    <Screen>
       <Main centerChild padded>
         {graphic}
-        <Prose textCenter theme={fontSizeTheme.medium}>
+        <Prose textCenter scale={2}>
           <h1>{heading}</h1>
           <p>
             {errorDescription} {recommendedActionOverride || recommendedAction}

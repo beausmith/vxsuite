@@ -21,7 +21,6 @@ beforeEach(() => {
 
 const renderTestCases: Array<{
   description: string;
-  displayRemoveCardToLeavePromptPropValue?: boolean;
   simulateVxDev?: boolean;
   shouldRemoveCardToLeavePromptBeDisplayed: boolean;
   shouldQuitButtonBeDisplayed: boolean;
@@ -33,7 +32,6 @@ const renderTestCases: Array<{
   },
   {
     description: 'when displayRemoveCardToLeavePrompt is specified',
-    displayRemoveCardToLeavePromptPropValue: true,
     shouldRemoveCardToLeavePromptBeDisplayed: true,
     shouldQuitButtonBeDisplayed: false,
   },
@@ -46,7 +44,6 @@ const renderTestCases: Array<{
   {
     description:
       'when displayRemoveCardToLeavePrompt is specified and on VxDev',
-    displayRemoveCardToLeavePromptPropValue: true,
     simulateVxDev: true,
     shouldRemoveCardToLeavePromptBeDisplayed: true,
     shouldQuitButtonBeDisplayed: true,
@@ -55,12 +52,7 @@ const renderTestCases: Array<{
 
 test.each(renderTestCases)(
   'SystemAdministratorScreenContents renders expected contents ($description)',
-  ({
-    displayRemoveCardToLeavePromptPropValue,
-    simulateVxDev,
-    shouldRemoveCardToLeavePromptBeDisplayed,
-    shouldQuitButtonBeDisplayed,
-  }) => {
+  ({ simulateVxDev, shouldQuitButtonBeDisplayed }) => {
     if (simulateVxDev) {
       mockOf(isVxDev).mockImplementation(() => true);
     }
@@ -68,9 +60,8 @@ test.each(renderTestCases)(
     const unconfigureMachine = jest.fn();
     render(
       <SystemAdministratorScreenContents
-        displayRemoveCardToLeavePrompt={displayRemoveCardToLeavePromptPropValue}
         logger={logger}
-        primaryText="To adjust settings for the current election, please insert an Election Manager card."
+        currentElectionInstructions="To adjust settings for the current election, please insert an election manager card."
         unconfigureMachine={unconfigureMachine}
         isMachineConfigured
         usbDriveStatus={usbstick.UsbDriveStatus.mounted}
@@ -78,19 +69,10 @@ test.each(renderTestCases)(
     );
 
     screen.getByText(
-      'To adjust settings for the current election, please insert an Election Manager card.'
+      'To adjust settings for the current election, please insert an election manager card.'
     );
-    if (shouldRemoveCardToLeavePromptBeDisplayed) {
-      screen.getByText(
-        'Remove the System Administrator card to leave this screen.'
-      );
-    } else {
-      expect(
-        screen.queryByText(
-          'Remove the System Administrator card to leave this screen.'
-        )
-      ).not.toBeInTheDocument();
-    }
+    screen.getByText('System Administrator Actions');
+    screen.getByText('Remove the card to continue.');
 
     // These buttons are all tested further in their respective test files
     screen.getByRole('button', { name: 'Reboot from USB' });
@@ -115,7 +97,7 @@ test('Quit button makes expected call', () => {
   render(
     <SystemAdministratorScreenContents
       logger={logger}
-      primaryText="To adjust settings for the current election, please insert an Election Manager card."
+      currentElectionInstructions="To adjust settings for the current election, please insert an election manager card."
       unconfigureMachine={unconfigureMachine}
       isMachineConfigured
       usbDriveStatus={usbstick.UsbDriveStatus.mounted}
@@ -134,7 +116,7 @@ test('Quit button does nothing when kiosk is undefined', () => {
   render(
     <SystemAdministratorScreenContents
       logger={logger}
-      primaryText="To adjust settings for the current election, please insert an Election Manager card."
+      currentElectionInstructions="To adjust settings for the current election, please insert an election manager card."
       unconfigureMachine={unconfigureMachine}
       isMachineConfigured
       usbDriveStatus={usbstick.UsbDriveStatus.mounted}
@@ -148,7 +130,7 @@ test('Reset Polls to Paused button not rendered if not specified', () => {
   render(
     <SystemAdministratorScreenContents
       logger={fakeLogger()}
-      primaryText="Primary Text"
+      currentElectionInstructions="asdf"
       unconfigureMachine={jest.fn()}
       isMachineConfigured
       usbDriveStatus={usbstick.UsbDriveStatus.mounted}
@@ -164,7 +146,7 @@ test('Reset Polls to Paused rendered if callback and flag specified', () => {
   render(
     <SystemAdministratorScreenContents
       logger={fakeLogger()}
-      primaryText="Primary Text"
+      currentElectionInstructions="asdf"
       unconfigureMachine={jest.fn()}
       isMachineConfigured
       resetPollsToPausedText="Reset Polls to Paused Text"

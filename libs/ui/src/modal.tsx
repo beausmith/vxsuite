@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-import { Theme } from './themes';
+import { Theme } from './themes/default';
 import { ButtonBar } from './button_bar';
 
 /**
@@ -17,7 +17,7 @@ export enum ModalWidth {
 interface ReactModalContentInterface {
   fullscreen?: boolean;
   modalWidth?: ModalWidth;
-  theme?: Theme;
+  theme: Theme;
 }
 const ReactModalContent = styled('div')<ReactModalContentInterface>`
   display: flex;
@@ -32,7 +32,6 @@ const ReactModalContent = styled('div')<ReactModalContentInterface>`
   background: #ffffff;
   width: 100%;
   overflow: auto;
-  font-size: ${({ theme }) => theme.fontSize};
   -webkit-overflow-scrolling: touch;
   @media (min-width: 480px) {
     position: static;
@@ -110,7 +109,6 @@ interface Props {
   onOverlayClick?: () => void;
   fullscreen?: boolean;
   modalWidth?: ModalWidth;
-  theme?: Theme;
 }
 
 /* istanbul ignore next - unclear why this isn't covered */
@@ -146,7 +144,6 @@ export function Modal({
   onAfterClose = focusScreenAudio,
   onOverlayClick,
   modalWidth,
-  theme,
 }: Props): JSX.Element {
   /* istanbul ignore next - can't get document.getElementById working in test */
   const appElement =
@@ -170,7 +167,6 @@ export function Modal({
         <ReactModalContent
           modalWidth={modalWidth}
           fullscreen={fullscreen}
-          theme={theme}
           {...props}
         >
           {children}

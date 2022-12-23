@@ -11,7 +11,7 @@ const Graphic = styled.img`
 
 export function RemoveCardScreen(): JSX.Element {
   return (
-    <Screen white>
+    <Screen>
       <Main>
         <Prose textCenter id="audiofocus">
           <p>Your votes have been saved to the card.</p>

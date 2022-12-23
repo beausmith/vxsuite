@@ -53,8 +53,10 @@ import {
   UnlockMachineScreen,
   sizeThemes,
   contrastThemes,
+  defaultTheme,
 } from '@votingworks/ui';
 import { ThemeProvider } from 'styled-components';
+import { Dipped } from '@votingworks/test-utils';
 import { Ballot } from './components/ballot';
 import * as GLOBALS from './config/globals';
 import {

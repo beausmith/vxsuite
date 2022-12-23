@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled, { css, StyledComponent } from 'styled-components';
 import { EventTargetFunction } from '@votingworks/types';
+import { cssFontSizeMinPixels, screenPixelsPerInch } from './themes/size';
+import { defaultTheme } from './themes/default';
 
 export interface ButtonInterface {
   readonly danger?: boolean;
@@ -9,6 +11,7 @@ export interface ButtonInterface {
   readonly noFocus?: boolean;
   readonly noWrap?: boolean;
   readonly primary?: boolean;
+  readonly primaryGreen?: boolean;
   readonly primaryBlue?: boolean;
   readonly small?: boolean;
   readonly textAlign?: 'left' | 'center' | 'right';
@@ -24,32 +27,69 @@ export const buttonNoFocusOutlineStyle = css`
 `;
 
 const buttonStyles = css<StyledButtonProps>`
+  appearance: none;
   display: inline-block;
-  border: none;
-  border-radius: 0.25em;
+  border: 4px solid ${({ theme }) => theme.contrast.foreground};
+  border-radius: ${screenPixelsPerInch()}px;
   box-shadow: 0 0 0 0 rgba(71, 167, 75, 1);
   box-sizing: border-box;
-  background: ${({ disabled, danger, warning, primary, primaryBlue }) =>
+  background: ${({
+    disabled,
+    danger,
+    warning,
+    primary,
+    primaryBlue,
+    primaryGreen,
+    theme,
+  }) =>
     (disabled && 'rgb(211, 211, 211)') ||
     (danger && 'red') ||
     (warning && 'darkorange') ||
-    (primary && 'rgb(71, 167, 75)') ||
+    (primary && theme.contrast.foreground) ||
+    (primaryGreen && 'rgb(71, 167, 75)') ||
     (primaryBlue && 'rgb(34, 152, 222)') ||
-    'rgb(211, 211, 211)'};
+    theme.contrast.background};
   cursor: ${({ disabled = false }) => (disabled ? undefined : 'pointer')};
   width: ${({ fullWidth = false }) => (fullWidth ? '100%' : undefined)};
+  min-height: ${({ large = false, small = false }) =>
+    small
+      ? Math.round(screenPixelsPerInch() * 0.5) // VVSG Requirement 7.2-I - Touch area size
+      : large
+      ? Math.round(screenPixelsPerInch() * 0.9)
+      : Math.round(screenPixelsPerInch() * 0.7)}px;
+  min-width: ${({ large = false, small = false }) =>
+    small
+      ? Math.round(screenPixelsPerInch() * 0.5) // VVSG Requirement 7.2-I - Touch area size
+      : large
+      ? Math.round(screenPixelsPerInch() * 0.9)
+      : Math.round(screenPixelsPerInch() * 0.7)}px;
   padding: ${({ large = false, small = false }) =>
-    small ? '0.35em 0.5em' : large ? '1em 1.75em' : '0.75em 1em'};
+    `${small ? '2px 24px' : large ? '10px 36px' : '5px 30px'}`};
   text-align: ${({ textAlign }) => textAlign || 'center'};
-  line-height: 1.25;
-  color: ${({ disabled, danger, warning, primary, primaryBlue }) =>
+  line-height: 1;
+  color: ${({
+    theme,
+    disabled,
+    danger,
+    warning,
+    primary,
+    primaryBlue,
+    primaryGreen,
+  }) =>
     (disabled && 'rgb(160, 160, 160)') ||
     (danger && '#FFFFFF') ||
     (warning && '#FFFFFF') ||
-    (primary && '#FFFFFF') ||
+    (primary && theme.contrast.background) ||
+    (primaryGreen && '#FFFFFF') ||
     (primaryBlue && '#FFFFFF') ||
-    'black'};
-  font-size: ${({ large = false }) => (large ? '1.25em' : undefined)};
+    theme.contrast.foreground};
+  font-size: ${({ large = false, small = false }) =>
+    small
+      ? `clamp(${cssFontSizeMinPixels}, 0.9em, 0.9em);`
+      : large
+      ? `1.2em`
+      : 'inherit'};
+
   touch-action: manipulation;
   &:focus {
     /* stylelint-disable-next-line value-keyword-case */
@@ -71,6 +111,10 @@ const StyledButton = styled('button').attrs(({ type = 'button' }) => ({
 }))`
   ${buttonStyles}/* stylelint-disable-line value-keyword-case */
 `;
+
+StyledButton.defaultProps = {
+  theme: defaultTheme,
+};
 
 export interface ButtonProps extends StyledButtonProps {
   component?: StyledComponent<'button', never, StyledButtonProps, never>;

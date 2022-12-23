@@ -7,7 +7,8 @@ export const ButtonBar = styled('nav')`
   justify-content: space-between;
   border-bottom: 1px solid rgb(169, 169, 169);
   background: rgba(0, 0, 0, 0.05);
-  padding: 0.25rem;
+  padding: 0 10px 10px;
+  gap: 10px;
 
   & > *:first-child {
     order: 2;
@@ -16,7 +17,6 @@ export const ButtonBar = styled('nav')`
 
   & > * {
     flex-grow: 1;
-    margin: 0.25rem;
   }
   & > *:only-child {
     @media (min-width: 480px) {

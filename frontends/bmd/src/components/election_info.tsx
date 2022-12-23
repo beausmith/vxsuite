@@ -9,13 +9,15 @@ import {
 } from '@votingworks/types';
 import { getPrecinctSelectionName, format } from '@votingworks/utils';
 
-import { Prose, Text, NoWrap } from '@votingworks/ui';
+import { Prose, Text, NoWrap, HorizontalRule } from '@votingworks/ui';
 import pluralize from 'pluralize';
 import { Seal } from './seal';
 
 const VerticalContainer = styled.div`
   display: block;
+  overflow: auto;
   margin: auto;
+  padding: 20px;
   div:first-child {
     margin: 0 auto 0.5rem;
   }
@@ -73,7 +75,7 @@ export function ElectionInfo({
         <HorizontalContainer>
           <Seal seal={seal} sealUrl={sealUrl} />
           <Prose compact>
-            <h5 aria-label={`${title}.`}>{title}</h5>
+            <h4 aria-label={`${title}.`}>{title}</h4>
             <Text small>
               {electionDate}
               <br />
@@ -103,24 +105,28 @@ export function ElectionInfo({
         >
           {electionDate}
           <br />
-          {state}
+          <NoWrap>{county.name},</NoWrap> <NoWrap>{state}</NoWrap>
           <br />
-          {county.name}
-          {precinctName && <br />}
-          {precinctName && (
-            <strong>
-              <NoWrap>{precinctName}</NoWrap>{' '}
-              {ballotStyleId && <NoWrap>({ballotStyleId})</NoWrap>}
-            </strong>
-          )}
+          <Text as="span" small>
+            Election ID: {electionDefinition.electionHash.slice(0, 10)}
+          </Text>
         </p>
         {contestCount && (
           <React.Fragment>
-            <hr />
+            <HorizontalRule />
             <p>
-              Your ballot has{' '}
-              <strong>{pluralize('contest', contestCount, true)}</strong>.
+              {precinctName && (
+                <Text as="span" small>
+                  <NoWrap>Ballot Style {ballotStyleId}</NoWrap>{' '}
+                  <NoWrap>at {precinctName}</NoWrap>
+                </Text>
+              )}
+              <br />
+              <strong>
+                Your ballot has {pluralize('contest', contestCount, true)}.
+              </strong>
             </p>
+            <HorizontalRule />
           </React.Fragment>
         )}
       </Prose>

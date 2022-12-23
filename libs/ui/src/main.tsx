@@ -21,6 +21,6 @@ export const Main = styled('main')<Props>`
     (centerChild || flexColumn) && 'column'};
   align-items: ${({ centerChild }) => centerChild && 'center'};
   justify-content: ${({ centerChild }) => centerChild && 'center'};
-  overflow: auto;
-  padding: ${({ padded }) => (padded ? '1rem' : undefined)};
+  // overflow: auto;
+  padding: ${({ padded }) => (padded ? '40px' : undefined)};
 `;

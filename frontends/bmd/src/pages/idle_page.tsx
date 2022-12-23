@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import pluralize from 'pluralize';
 import useInterval from 'use-interval';
 
-import { Button, Loading, Main, Prose, Screen } from '@votingworks/ui';
+import { Button, Loading, Main, NoWrap, Prose, Screen } from '@votingworks/ui';
 
 import {
   IDLE_RESET_TIMEOUT_SECONDS,
@@ -39,23 +39,29 @@ export function IdlePage(): JSX.Element {
 
   return (
     <Screen navRight>
-      <Main centerChild>
+      <Main centerChild padded>
         {isLoading ? (
           <Loading>Clearing ballot</Loading>
         ) : (
           <Prose textCenter>
             <h1 aria-label="Are you still voting?">Are you still voting?</h1>
             <p>
-              This voting station has been inactive for more than{' '}
-              {pluralize('minute', IDLE_TIMEOUT_SECONDS / 60, true)}.
+              This voting station has been inactive{' '}
+              <NoWrap>
+                for more than{' '}
+                {pluralize('minute', IDLE_TIMEOUT_SECONDS / 60, true)}.
+              </NoWrap>
             </p>
             {countdown <= timeoutSeconds / 2 && (
               <p>
-                To protect your privacy, this ballot will be cleared in{' '}
-                <strong>{pluralize('second', countdown, true)}</strong>.
+                To protect voter privacy, this ballot{' '}
+                <NoWrap>
+                  will be cleared in{' '}
+                  <strong>{pluralize('second', countdown, true)}</strong>.
+                </NoWrap>
               </p>
             )}
-            <Button primary onPress={onPress}>
+            <Button primary large onPress={onPress}>
               Yes, I’m still voting.
             </Button>
           </Prose>
