@@ -18,7 +18,7 @@ const arrowLeftStyles = css<Props>`
     background: url('/images/arrow-left-open-black.svg') no-repeat;
     width: ${({ small }) => (small ? '1rem' : '1.375rem')};
     height: ${({ small }) => (small ? '1rem' : '1.375rem')};
-    vertical-align: text-bottom;
+    vertical-align: center;
     content: '';
   }
 `;
@@ -34,7 +34,7 @@ const arrowRightStyles = css<Props>`
       no-repeat;
     width: ${({ small }) => (small ? '1rem' : '1.375rem')};
     height: ${({ small }) => (small ? '1rem' : '1.375rem')};
-    vertical-align: text-bottom;
+    vertical-align: center;
     content: '';
   }
 `;

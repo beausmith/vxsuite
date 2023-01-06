@@ -9,9 +9,8 @@ const buttonFooterButtonStyles = css`
 
 export const ButtonFooter = styled.nav`
   display: flex;
-  background: ${({ theme }) => theme.contrast.foreground};
+  border-top: 4px solid ${({ theme }) => theme.contrast.foreground};
   padding: 20px;
-  color: ${({ theme }) => theme.contrast.foreground};
   gap: 20px;
   & > * {
     flex: 1;

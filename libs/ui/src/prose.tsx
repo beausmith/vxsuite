@@ -50,9 +50,7 @@ export const Prose = styled('div')<ProseProps>`
   & h4 {
     font-size: ${({ theme, scale = 1 }) => theme.size.h4 * scale}em;
   }
-  p {
-    font-size: ${({ scale = 1 }) => scale}em;
-  }
+  // p {} // Do not define "p" style here as the "Text" component would be overriden.
   & h3,
   & h4,
   & h5,

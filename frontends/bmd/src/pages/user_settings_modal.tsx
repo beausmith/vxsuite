@@ -1,6 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 
-import { Button, Prose, Modal } from '@votingworks/ui';
+import {
+  Button,
+  Prose,
+  Modal,
+  sizeThemes,
+  contrastThemes,
+  ModalWidth,
+} from '@votingworks/ui';
+import { ThemeProvider } from 'styled-components';
 import { BallotContext } from '../contexts/ballot_context';
 import { SettingsTextSize } from '../components/settings_text_size';
 import { handleGamepadKeyboardEvent } from '../lib/gamepad';
@@ -35,35 +43,43 @@ export function VoterSettingsModal(): JSX.Element {
   }, []);
 
   return (
-    <Modal
-      content={
-        <Prose textCenter maxWidth={false} id="modalaudiofocus">
-          <h1>Voter Settings</h1>
-          <span aria-label="Navigate through the settings using the up and down buttons. Use the select button to select a setting. When you are done, use the right or left arrow to close settings." />
-          <SettingsTextSize
-            userSettings={userSettings}
-            setUserSettings={setUserSettings}
-          />
-          <SettingsContrast
-            userSettings={userSettings}
-            setUserSettings={setUserSettings}
-          />
-        </Prose>
-      }
-      actions={
-        <React.Fragment>
-          <Button
-            primary
-            onPress={closeUserSettingsModal}
-            aria-label="Close Settings"
-          >
-            Done
-          </Button>
-          <Button onPress={resetUserSettingsToDefaults}>
-            Use Default Settings
-          </Button>
-        </React.Fragment>
-      }
-    />
+    <ThemeProvider
+      theme={{
+        size: sizeThemes[userSettings.sizeTheme],
+        contrast: contrastThemes[userSettings.contrastTheme],
+      }}
+    >
+      <Modal
+        modalWidth={ModalWidth.NearlyCovering}
+        content={
+          <Prose textCenter maxWidth={false} id="modalaudiofocus">
+            <h1>Voter Settings</h1>
+            <span aria-label="Navigate through the settings using the up and down buttons. Use the select button to select a setting. When you are done, use the right or left arrow to close settings." />
+            <SettingsTextSize
+              userSettings={userSettings}
+              setUserSettings={setUserSettings}
+            />
+            <SettingsContrast
+              userSettings={userSettings}
+              setUserSettings={setUserSettings}
+            />
+          </Prose>
+        }
+        actions={
+          <React.Fragment>
+            <Button
+              primary
+              onPress={closeUserSettingsModal}
+              aria-label="Close Settings"
+            >
+              Done
+            </Button>
+            <Button onPress={resetUserSettingsToDefaults}>
+              Use Default Settings
+            </Button>
+          </React.Fragment>
+        }
+      />
+    </ThemeProvider>
   );
 }

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { getPartyPrimaryAdjectiveFromBallotStyle } from '@votingworks/types';
-import { Button, LinkButton, Main, Screen, Prose } from '@votingworks/ui';
+import { LinkButton, Main, Screen, Prose } from '@votingworks/ui';
 
 import pluralize from 'pluralize';
 import { BallotContext } from '../contexts/ballot_context';
@@ -25,24 +25,16 @@ const SidebarSpacer = styled.div`
   height: 90px;
 `;
 
-const Footer = styled.nav`
-  background-color: #333333;
-  padding: 60px 40px 40px;
-  color: #ffffff;
-`;
-
-const SettingsContainer = styled.div`
-  margin-top: 60px;
+const Footer = styled.div`
+  border-top: 4px solid ${({ theme }) => theme.contrast.foreground};
+  padding-top: 20px;
 `;
 
 const IndividualSettingsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: -0.5em;
-  border: 1px solid #808080;
-  border-width: 1px 0;
-  padding: 1rem 0;
+  margin-top: -0.75em; // matching heading
   gap: 2em;
 `;
 
@@ -90,8 +82,8 @@ export function StartPage(): JSX.Element {
   }, []);
 
   const settingsContainer = (
-    <SettingsContainer>
-      <h4>Voter Settings</h4>
+    <React.Fragment>
+      <h2>Voter Settings</h2>
       <IndividualSettingsContainer>
         <SettingsTextSize
           userSettings={userSettings}
@@ -102,7 +94,7 @@ export function StartPage(): JSX.Element {
           setUserSettings={setUserSettings}
         />
       </IndividualSettingsContainer>
-    </SettingsContainer>
+    </React.Fragment>
   );
 
   const startVotingButton = (
@@ -110,7 +102,7 @@ export function StartPage(): JSX.Element {
       <LinkButton
         large
         primary
-        fullWidth={isLandscape}
+        fullWidth
         onPress={onStart}
         id="next"
         aria-label="Press the right button to advance to the first contest."
@@ -130,7 +122,9 @@ export function StartPage(): JSX.Element {
             precinctSelection={singlePrecinctSelectionFor(precinctId)}
             ariaHidden={false}
             contestCount={contests.length}
-          />
+          >
+            {startVotingButton}
+          </ElectionInfo>
         ) : (
           <Prose textCenter>
             <h1 aria-label={`${partyPrimaryAdjective} ${title}.`}>
@@ -146,29 +140,6 @@ export function StartPage(): JSX.Element {
             {settingsContainer}
           </Prose>
         )}
-        <p>
-          <Button small onPress={onStart}>
-            Default small
-          </Button>{' '}
-          <Button small primary onPress={onStart}>
-            Primary small
-          </Button>
-        </p>
-        <p>
-          <Button onPress={onStart}>Default</Button>{' '}
-          <Button primary onPress={onStart}>
-            Primary
-          </Button>
-        </p>
-        <p>
-          <Button large onPress={onStart}>
-            Default large
-          </Button>{' '}
-          <Button large primary onPress={onStart}>
-            Primary large
-          </Button>
-        </p>
-
         <p className="screen-reader-only">
           When voting with the text-to-speech audio, use the accessible
           controller to navigate your ballot. To navigate through the contests,
@@ -179,10 +150,7 @@ export function StartPage(): JSX.Element {
       </Main>
       {isPortrait ? (
         <Footer>
-          <Prose textCenter>
-            {startVotingButton}
-            {settingsContainer}
-          </Prose>
+          <Prose textCenter>{settingsContainer}</Prose>
         </Footer>
       ) : (
         <Sidebar

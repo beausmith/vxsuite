@@ -10,6 +10,7 @@ export interface ButtonInterface {
   readonly large?: boolean;
   readonly noFocus?: boolean;
   readonly noWrap?: boolean;
+  readonly invertedContrast?: boolean;
   readonly primary?: boolean;
   readonly primaryGreen?: boolean;
   readonly primaryBlue?: boolean;
@@ -22,14 +23,12 @@ export interface StyledButtonProps
   extends ButtonInterface,
     React.PropsWithoutRef<JSX.IntrinsicElements['button']> {}
 
-export const buttonNoFocusOutlineStyle = css`
-  outline: none;
-`;
-
 const buttonStyles = css<StyledButtonProps>`
   appearance: none;
   display: inline-block;
-  border: 4px solid ${({ theme }) => theme.contrast.foreground};
+  border: 4px solid
+    ${({ theme, invertedContrast }) =>
+      invertedContrast ? theme.contrast.background : theme.contrast.foreground};
   border-radius: ${screenPixelsPerInch()}px;
   box-shadow: 0 0 0 0 rgba(71, 167, 75, 1);
   box-sizing: border-box;
@@ -37,6 +36,7 @@ const buttonStyles = css<StyledButtonProps>`
     disabled,
     danger,
     warning,
+    invertedContrast,
     primary,
     primaryBlue,
     primaryGreen,
@@ -45,9 +45,11 @@ const buttonStyles = css<StyledButtonProps>`
     (disabled && 'rgb(211, 211, 211)') ||
     (danger && 'red') ||
     (warning && 'darkorange') ||
+    (primary && invertedContrast && theme.contrast.background) ||
     (primary && theme.contrast.foreground) ||
     (primaryGreen && 'rgb(71, 167, 75)') ||
     (primaryBlue && 'rgb(34, 152, 222)') ||
+    (invertedContrast && theme.contrast.foreground) ||
     theme.contrast.background};
   cursor: ${({ disabled = false }) => (disabled ? undefined : 'pointer')};
   width: ${({ fullWidth = false }) => (fullWidth ? '100%' : undefined)};
@@ -72,6 +74,7 @@ const buttonStyles = css<StyledButtonProps>`
     disabled,
     danger,
     warning,
+    invertedContrast,
     primary,
     primaryBlue,
     primaryGreen,
@@ -79,9 +82,11 @@ const buttonStyles = css<StyledButtonProps>`
     (disabled && 'rgb(160, 160, 160)') ||
     (danger && '#FFFFFF') ||
     (warning && '#FFFFFF') ||
+    (primary && invertedContrast && theme.contrast.foreground) ||
     (primary && theme.contrast.background) ||
     (primaryGreen && '#FFFFFF') ||
     (primaryBlue && '#FFFFFF') ||
+    (invertedContrast && theme.contrast.background) ||
     theme.contrast.foreground};
   font-size: ${({ large = false, small = false }) =>
     small
@@ -91,18 +96,19 @@ const buttonStyles = css<StyledButtonProps>`
       : 'inherit'};
 
   touch-action: manipulation;
-  &:focus {
-    /* stylelint-disable-next-line value-keyword-case */
-    ${({ noFocus = false }) =>
-      noFocus ? buttonNoFocusOutlineStyle : undefined}
-  }
   &:hover,
   &:active {
     outline: none;
   }
+  &:focus {
+    outline: ${({ theme, noFocus = false }) =>
+      noFocus ? 'none' : `12px dashed ${theme.contrast.foreground}`};
+    outline-offset: 4px;
+    z-index: 100;
+  }
 `;
 
-export const DecoyButton = styled.div`
+export const DecoyButton = styled.button`
   ${buttonStyles}/* stylelint-disable-line value-keyword-case */
 `;
 
@@ -162,13 +168,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button';
 
-export const SegmentedButton = styled.span`
-  display: inline-flex;
+interface SegmentedButtonProps {
+  readonly inverted?: boolean;
+}
+
+export const SegmentedButton = styled.span<SegmentedButtonProps>`
+  display: flex;
   white-space: nowrap;
-  & > button {
-    flex: 1;
-    box-shadow: inset 1px 0 0 rgb(190, 190, 190);
-  }
   & > button:first-child {
     box-shadow: none;
   }
@@ -177,6 +183,7 @@ export const SegmentedButton = styled.span`
     border-bottom-right-radius: 0;
   }
   & > button:not(:first-child) {
+    margin-left: -4px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }

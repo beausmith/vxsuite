@@ -7,6 +7,7 @@ import { SetUserSettings, UserSettings } from '../config/types';
 import { CONTRAST_THEMES, TEXT_SIZES } from '../config/globals';
 
 const ContrastSegmentedButton = styled(SegmentedButton)`
+  justify-content: center;
   span:not(:focus):not(:active) {
     position: absolute;
     width: 1px;
@@ -27,7 +28,7 @@ const ContrastSegmentedButton = styled(SegmentedButton)`
       height: 44px;
       line-height: 40px;
       font-weight: 700;
-      content: 'A';
+      content: '';
     }
     &[data-contrast='black'] {
       &::before {

@@ -46,6 +46,7 @@ interface Props {
   horizontal?: boolean;
   ariaHidden?: boolean;
   contestCount?: number;
+  children?: React.ReactNode;
 }
 
 export function ElectionInfo({
@@ -55,6 +56,7 @@ export function ElectionInfo({
   horizontal = false,
   ariaHidden = true,
   contestCount,
+  children,
 }: Props): JSX.Element {
   const { election } = electionDefinition;
   const { title: t, state, county, date, seal, sealUrl } = election;
@@ -126,9 +128,9 @@ export function ElectionInfo({
                 Your ballot has {pluralize('contest', contestCount, true)}.
               </strong>
             </p>
-            <HorizontalRule />
           </React.Fragment>
         )}
+        {children}
       </Prose>
     </VerticalContainer>
   );

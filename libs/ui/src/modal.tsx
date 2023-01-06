@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Theme } from './themes/default';
 import { ButtonBar } from './button_bar';
+import { cssFontSizePixels } from './themes/size';
 
 /**
  * Controls the maximum width the modal can expand to.
@@ -12,6 +13,7 @@ import { ButtonBar } from './button_bar';
 export enum ModalWidth {
   Standard = '30rem',
   Wide = '55rem',
+  NearlyCovering = '94vw',
 }
 
 interface ReactModalContentInterface {
@@ -29,13 +31,16 @@ const ReactModalContent = styled('div')<ReactModalContentInterface>`
   left: 0;
   margin: auto;
   outline: none;
-  background: #ffffff;
+  color: ${({ theme }) => theme.contrast.foreground};
+  background: ${({ theme }) => theme.contrast.background};
   width: 100%;
+  border: 4px solid ${({ theme }) => theme.contrast.foreground};
+  font-size: ${({ theme }) => cssFontSizePixels(theme.size.text)}px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   @media (min-width: 480px) {
     position: static;
-    border-radius: ${({ fullscreen }) => (fullscreen ? '0' : '0.25rem')};
+    border-radius: ${({ fullscreen }) => (fullscreen ? '0' : '60px')};
     max-width: ${({ fullscreen, modalWidth = ModalWidth.Standard }) =>
       fullscreen ? '100%' : modalWidth};
     height: ${({ fullscreen }) => (fullscreen ? '100%' : 'auto')};
@@ -79,7 +84,7 @@ const ModalContent = styled('div')<ModalContentInterface>`
   justify-content: ${({ centerContent = false }) =>
     centerContent ? 'center' : undefined};
   overflow: auto;
-  padding: ${({ fullscreen }) => !fullscreen && '2rem'};
+  padding: ${({ fullscreen }) => !fullscreen && '40px 40px 70px'};
 `;
 
 interface Props {

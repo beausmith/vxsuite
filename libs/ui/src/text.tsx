@@ -36,14 +36,14 @@ const iconStyles = css<Props>`
     margin-top: -0.3em;
     margin-right: 0.25em;
     border-radius: ${({ warningIcon }) => warningIcon && '50%'};
-    background: ${({ warningIcon, voteIcon }) =>
-      (warningIcon && 'darkorange') || (voteIcon && '#028099')};
+    background: ${({ warningIcon, voteIcon, theme }) =>
+      (warningIcon && 'darkorange') || (voteIcon && theme.contrast.foreground)};
     width: 1em;
     height: 1em;
     vertical-align: middle;
     text-align: center;
     line-height: 1.1;
-    color: #ffffff;
+    color: ${({ theme }) => theme.contrast.background};
     font-size: 90%;
     font-weight: 800;
     content: ${({ warningIcon, voteIcon }) =>

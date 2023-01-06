@@ -114,7 +114,7 @@ export const ScrollContainer = styled.div`
 export const ScrollableContentWrapper = styled.div<Scrollable>`
   margin: 0 auto;
   width: 100%;
-  padding: 0.25rem 20px 0;
+  padding: 16px 20px 0;
   padding-right: ${({ isScrollable }) =>
     isScrollable
       ? /* istanbul ignore next: Tested by Cypress */ '11rem'

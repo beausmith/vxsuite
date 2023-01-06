@@ -5,8 +5,6 @@ export const ButtonBar = styled('nav')`
   flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgb(169, 169, 169);
-  background: rgba(0, 0, 0, 0.05);
   padding: 0 10px 10px;
   gap: 10px;
 

@@ -17,10 +17,10 @@ interface BarProps {
 const Bar = styled.div<BarProps>`
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: center;
   flex-wrap: ${({ isVoterMode }) => (isVoterMode ? undefined : 'wrap')};
   background: ${({ theme }) => theme.contrast.foreground};
-  padding: 10px 15px;
+  padding: 15px;
   color: ${({ theme }) => theme.contrast.background};
   gap: 20px;
 `;
@@ -29,9 +29,9 @@ const BarHeader = styled.div<{
   isVoterMode: boolean;
 }>`
   display: flex;
+  align-items: center;
   flex: 1;
   flex-basis: ${({ isVoterMode }) => (isVoterMode ? undefined : '100%')};
-  gap: 10px;
 `;
 
 const BarData = styled.div<{
@@ -41,7 +41,12 @@ const BarData = styled.div<{
 `;
 
 const BarSeal = styled.div`
-  width: 65px;
+  width: 62px;
+  margin: 0 18px 0 2px;
+  position: relative;
+  & > div {
+    transform: scale(120%);
+  }
 `;
 
 export type InfoBarMode = 'voter' | 'pollworker' | 'admin';
@@ -70,10 +75,14 @@ export function ElectionInfoBar({
     <Bar data-testid="electionInfoBar" isVoterMode={isVoterMode}>
       <BarHeader isVoterMode={isVoterMode}>
         <BarSeal>
-          {(seal || sealUrl) && <Seal seal={seal} sealUrl={sealUrl} />}
+          <div>
+            {(seal || sealUrl) && <Seal seal={seal} sealUrl={sealUrl} />}
+          </div>
         </BarSeal>
         <Prose maxWidth={false} compact>
-          <strong>{title}</strong> — <NoWrap>{electionDate}</NoWrap>
+          <Text as="div" small>
+            <strong>{title}</strong> — <NoWrap>{electionDate}</NoWrap>
+          </Text>
           <Text as="div" small>
             {precinctSelection && (
               <React.Fragment>
@@ -92,7 +101,9 @@ export function ElectionInfoBar({
             <Text as="div" small noWrap>
               Software Version
             </Text>
-            <strong>{codeVersion}</strong>
+            <Text bold small>
+              {codeVersion}
+            </Text>
           </Prose>
         </BarData>
       )}
@@ -102,7 +113,9 @@ export function ElectionInfoBar({
             <Text as="div" small noWrap>
               Machine ID
             </Text>
-            <strong>{machineId}</strong>
+            <Text bold small>
+              {machineId}
+            </Text>
           </Prose>
         </BarData>
       )}
@@ -111,7 +124,9 @@ export function ElectionInfoBar({
           <Text as="div" small>
             Election ID
           </Text>
-          <strong>{electionDefinition.electionHash.slice(0, 10)}</strong>
+          <Text bold small>
+            {electionDefinition.electionHash.slice(0, 10)}
+          </Text>
         </Prose>
       </BarData>
     </Bar>

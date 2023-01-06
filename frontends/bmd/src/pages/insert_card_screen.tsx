@@ -19,7 +19,7 @@ import { triggerAudioFocus } from '../utils/trigger_audio_focus';
 
 const InsertCardImage = styled.img`
   margin: 0 auto -1rem;
-  height: 30vw;
+  height: 30vh;
 `;
 
 interface Props {
@@ -51,7 +51,12 @@ export function InsertCardScreen({
           </React.Fragment>
         );
       case 'polls_open':
-        return <h1>Insert Card</h1>;
+        return (
+          <React.Fragment>
+            <h1>Insert Card</h1>
+            <p>Insert Poll Worker card to select a ballot style.</p>
+          </React.Fragment>
+        );
       case 'polls_paused':
         return (
           <React.Fragment>
@@ -73,7 +78,7 @@ export function InsertCardScreen({
   })();
 
   return (
-    <Screen data-foo="foo3">
+    <Screen>
       {!isLiveMode && <TestMode />}
       <Main centerChild padded>
         <Prose scale={1} textCenter id="audiofocus">
@@ -92,7 +97,7 @@ export function InsertCardScreen({
           </p>
           {mainText}
           {showNoAccessibleControllerWarning && (
-            <Text muted small>
+            <Text small italic>
               Voting with an accessible controller is not currently available.
             </Text>
           )}

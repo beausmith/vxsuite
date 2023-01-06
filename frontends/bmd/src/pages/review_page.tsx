@@ -59,11 +59,6 @@ const ContentHeader = styled.div`
   width: 100%;
   padding: 1rem 5rem 0.5rem 3rem;
 `;
-const ContestSection = styled.div`
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  font-weight: 600;
-`;
 const VariableContentContainer = styled.div<ScrollShadows>`
   display: flex;
   flex: 1;
@@ -163,7 +158,7 @@ const ScrollContainer = styled.div`
 const ScrollableContentWrapper = styled.div<Scrollable>`
   margin: 0 auto;
   width: 100%;
-  padding: 0.25rem 5rem 40px 20px;
+  padding: 10px 20px 40px;
   padding-right: ${({ isScrollable }) =>
     isScrollable
       ? /* istanbul ignore next: Tested by Cypress */ '11rem'
@@ -175,14 +170,11 @@ const Contest = styled.button`
   align-items: center;
   margin-bottom: 20px;
   border-radius: 0.125rem;
-  box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.14),
-    0 0.1875rem 0.0625rem -0.125rem rgba(0, 0, 0, 0.12),
-    0 0.0625rem 0.3125rem 0 rgba(0, 0, 0, 0.2);
-  background: #ffffff;
+  border: 2px solid ${({ theme }) => theme.contrast.foreground};
+  background: ${({ theme }) => theme.contrast.background};
   width: 100%; /* reset Button default here at component rather than pass 'fullWidth' param. */
   padding: 0.375rem 0.5rem;
   text-decoration: inherit;
-  white-space: normal; /* reset Button default */
   color: inherit;
   button& {
     cursor: pointer;
@@ -487,7 +479,9 @@ export function ReviewPage(): JSX.Element {
                 >
                   <ContestProse compact>
                     <h2 aria-label={`${contest.section} ${contest.title},`}>
-                      <ContestSection>{contest.section}</ContestSection>
+                      <Text as="div" small>
+                        {contest.section}
+                      </Text>
                       {contest.title}
                     </h2>
 

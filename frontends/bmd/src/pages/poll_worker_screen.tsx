@@ -276,12 +276,12 @@ function ScannerReportModal({
         </Prose>
       );
       modalActions = willUpdatePollsToMatchScanner ? (
-        <Button primary onPress={printReportsAndUpdatePolls}>
+        <Button primaryGreen onPress={printReportsAndUpdatePolls}>
           {getPollsTransitionAction(scannerReportData.pollsTransition)} and
           Print Report
         </Button>
       ) : (
-        <Button primary onPress={printReportsAndUpdatePolls}>
+        <Button primaryGreen onPress={printReportsAndUpdatePolls}>
           Print Report
         </Button>
       );
@@ -312,7 +312,7 @@ function ScannerReportModal({
       );
       modalActions = (
         <React.Fragment>
-          <Button primary onPress={onClose}>
+          <Button primaryGreen onPress={onClose}>
             Continue
           </Button>
           <Button onPress={printAdditionalReport}>
@@ -341,8 +341,8 @@ function ScannerReportModal({
 
 const VotingSession = styled.div`
   margin: 30px 0 100px;
-  border: 1px solid #000000;
-  border-radius: 10px;
+  border: 8px dashed #000000;
+  border-radius: 30px;
   padding: 30px 40px;
   & > *:first-child {
     margin-top: 0;
@@ -413,7 +413,7 @@ function UpdatePollsDirectlyButton({
           actions={
             <UpdatePollsDirectlyActionsSpan>
               <Button onPress={confirmUpdate}>{action} on VxMark Now</Button>
-              <Button primary onPress={closeModal}>
+              <Button primaryGreen onPress={closeModal}>
                 Cancel
               </Button>
             </UpdatePollsDirectlyActionsSpan>
@@ -670,7 +670,7 @@ export function PollWorkerScreen({
                             onPress={() =>
                               setSelectedCardlessVoterPrecinctId(precinct.id)
                             }
-                            primary={
+                            primaryGreen={
                               selectedCardlessVoterPrecinctId === precinct.id
                             }
                           >
@@ -723,7 +723,7 @@ export function PollWorkerScreen({
                   <React.Fragment>
                     <p>
                       <Button
-                        primary
+                        primaryGreen
                         onPress={() => setIsHidingSelectBallotStyle(false)}
                       >
                         Back to Ballot Style Selection
@@ -789,7 +789,7 @@ export function PollWorkerScreen({
             actions={
               <React.Fragment>
                 <Button
-                  primary
+                  primaryGreen
                   danger={isPrintMode}
                   onPress={confirmEnableLiveMode}
                 >

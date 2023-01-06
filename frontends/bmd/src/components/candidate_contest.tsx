@@ -38,7 +38,6 @@ import { ChoiceButton } from './choice_button';
 import { VirtualKeyboard } from './virtual_keyboard';
 import {
   ContentHeader,
-  ContestSection,
   VariableContentContainer,
   ScrollControls,
   ScrollContainer,
